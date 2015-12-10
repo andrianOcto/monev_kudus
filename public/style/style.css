@@ -1,0 +1,45 @@
+#breadcrumb-dPeta{
+    position:relative;
+    float:left;
+    right:0;
+    top:0
+}
+
+.img-dPeta{
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    width: 300px
+}
+
+#scrollx{
+    overflow-x: scroll;
+}
+
+.tCenter{
+    text-align: center;
+}
+
+table > tr > td .tKetDetail{
+    text-align: right;
+    width: 20%
+}
+
+table > tr > td .tKetHeader{
+    background-color: darkgrey;
+    text-align: right;
+    width: 20%;
+}
+
+.tCompare{
+    border-bottom: 1px solid darkgrey;
+    border-top: 1px solid darkgrey;
+    line-height: 3;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.imgCompare{
+    padding: 5px;
+    margin-top: 5px;
+}

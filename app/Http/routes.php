@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','DashboardController@getIndex');
+Route::get('/users','UserController@index');
+Route::get('/masterinduk','MasterIndukController@index');
+Route::get('/masterlahan','MasterLahanController@index');
+Route::get('/monitoring','MonitoringController@index');
+Route::get('/kecamatan','KecamatanController@index');
+Route::get('/desa','DesaController@index');
+
+Route::get('/login','LoginController@index');
