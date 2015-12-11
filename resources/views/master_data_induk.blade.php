@@ -34,9 +34,9 @@
                       <td style="text-align:center"> <img src="" width="150px"> </td>
                       <td>Peta Pola Ruang Kabupaten Kudus</td>
                       <td style="text-align:center">
-                          <a href="detailPeta.php" class="btn btn-primary btn-flat"><i class="fa fa-eye"></i> lihat</a>
+                          <a href="/detailinduk" class="btn btn-primary btn-flat"><i class="fa fa-eye"></i> lihat</a>
                           <a href="#" class="btn btn-warning btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
-                          <a href="#" class="btn btn-danger btn-flat"><i class="fa fa-trash-o"></i> hapus</a>
+                          <a href="#modalDelete" data-toggle="modal" data-target="#modalDelete" class="btn btn-danger btn-flat"><i class="fa fa-trash-o"></i> hapus</a>
                       </td>
                   </tr>
                 </tbody>
@@ -70,7 +70,6 @@
                           <td style="text-align:center">
                               <a href="#" class="btn btn-primary btn-flat"><i class="fa fa-eye"></i> lihat</a>
                               <a href="#" class="btn btn-warning btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
-                              <a href="#" class="btn btn-danger btn-flat"><i class="fa fa-trash-o"></i> hapus</a>
                           </td>
                       </tr>
                       </tbody>
@@ -80,5 +79,25 @@
             </div>
         </div>
     </section>
+
+    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h2 class="modal-title" id="myModalLabel">Perhatian</h2>
+    </div>
+    <div class="modal-body">
+      <h4> Apakah Anda Yakin Akan Menghapus Data </h4>
+    </div>
+    <div class="modal-footer">
+      <form action="" method="">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
 
 @endsection

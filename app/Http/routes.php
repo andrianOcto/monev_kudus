@@ -11,12 +11,14 @@
 |
 */
 
-Route::get('/','DashboardController@getIndex');
+Route::get('/','DashboardController@index');
 Route::get('/users','UserController@index');
 Route::get('/masterinduk','MasterIndukController@index');
 Route::get('/masterlahan','MasterLahanController@index');
 Route::get('/monitoring','MonitoringController@index');
 Route::get('/kecamatan','KecamatanController@index');
 Route::get('/desa','DesaController@index');
+Route::get('/detailinduk','DetailIndukController@index');
+// Route::get('/detaillahan','DetailLahanController@index');
 
 Route::get('/login','LoginController@index');

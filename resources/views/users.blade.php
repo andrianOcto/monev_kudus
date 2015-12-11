@@ -30,7 +30,7 @@
                           <td>Administrator</td>
                           <td style="text-align:center">
                               <a href="#" class="btn btn-warning btn-flat"><i class="fa fa-pencil-square-o"></i> edit password</a>
-                              <a href="#modalDelete" class="btn btn-danger btn-flat"><i class="fa fa-trash-o"></i> hapus</a>
+                              <a href="#modalDelete" data-toggle="modal" data-target="#modalDelete" class="btn btn-danger btn-flat"><i class="fa fa-trash-o"></i> hapus</a>
                           </td>
                       </tr>
                     </tbody>

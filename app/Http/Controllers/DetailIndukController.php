@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class DetailIndukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        return view('detail_data_induk');
     }
 
     /**
