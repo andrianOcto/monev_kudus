@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{ asset("/bower_components/admin-lte/awesome-font/css/font-awesome.min.css") }}">
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset("/bower_components/admin-lte/plugins/datatables/dataTables.bootstrap.css") }}">
+    <!-- Select2 style -->
+    <link rel="stylesheet" href="{{ asset("/bower_components/admin-lte/plugins/select2/select2.min.css") }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset("/bower_components/admin-lte/dist/css/AdminLTE.min.css")}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins

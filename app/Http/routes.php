@@ -20,5 +20,8 @@ Route::get('/kecamatan','KecamatanController@index');
 Route::get('/desa','DesaController@index');
 Route::get('/detailinduk','DetailIndukController@index');
 // Route::get('/detaillahan','DetailLahanController@index');
+Route::get('/tambahlahan','AddLahanController@index');
+Route::get('/editlahan','EditLahanController@index');
+Route::get('/tambahdatainduk','AddDataIndukController@index');
 
 Route::get('/login','LoginController@index');

@@ -10,28 +10,27 @@
         Sistem Informasi Monitoring, Evaluasi, dan Pelaporan Pemanfaatan Ruang<br>
         Kabupaten Kudus
     </div>
-    <!-- User name -->
-    <div class="lockscreen-name">Administrator</div>
-
-    <!-- START LOCK SCREEN ITEM -->
-    <div class="lockscreen-item">
-      <!-- lockscreen image -->
-      <div class="lockscreen-image">
-        <img src="{{ asset("/images/black302.png") }}" alt="User Image">
+    <center>
+    <div class="login-box-body" style="padding-top:30px; width:50%">
+    <form action="" method="">
+      <div class="form-group has-feedback">
+        <input type="hidden" class="form-control" name="type" value="login" required>
+        <input type="text" class="form-control" placeholder="Username" name="username">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
-      <!-- /.lockscreen-image -->
-
-      <!-- lockscreen credentials (contains the form) -->
-      <form class="lockscreen-credentials">
-        <div class="input-group">
-          <input type="password" class="form-control" placeholder="password">
-          <div class="input-group-btn">
-            <a href="/" class="btn"><i class="fa fa-arrow-right text-muted"></i></a>
-          </div>
-        </div>
-      </form><!-- /.lockscreen credentials -->
-
-    </div><!-- /.lockscreen-item -->
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Password" name="password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div><!-- /.col -->
+      </div>
+    </form>
+    </div>
+    </center>
     <div class="lockscreen-footer text-center" style="margin-top:100px">
       Copyright &copy; 2015 <b>Dinas Cipkataru Kudus</b><br>
       All rights reserved

@@ -6,6 +6,8 @@
 <!-- DataTables -->
 <script src="{{ asset ("/bower_components/admin-lte/plugins/datatables/jquery.dataTables.min.js") }}"></script>
 <script src="{{ asset ("/bower_components/admin-lte/plugins/datatables/dataTables.bootstrap.min.js") }}"></script>
+<!-- Select2 style -->
+<script src="{{ asset ("/bower_components/admin-lte/plugins/select2/select2.min.js") }}"></script>
 <!-- Slimscroll -->
 <script src="{{ asset ("/bower_components/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js") }}"></script>
 <!-- FastClick -->
@@ -17,6 +19,8 @@
 
 <script>
   $(function () {
+    $(".select2").select2();
+
     $("#example1").DataTable();
     $('#example2').DataTable({
       "paging": true,

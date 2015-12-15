@@ -43,3 +43,8 @@ table > tr > td .tKetHeader{
     padding: 5px;
     margin-top: 5px;
 }
+
+.lockscreen-wrapper {
+    margin: 5% auto 0px;
+    max-width: 600px;
+}
