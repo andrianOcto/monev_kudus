@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Kecamatan;
 
 class KecamatanController extends Controller
 {
@@ -16,7 +17,8 @@ class KecamatanController extends Controller
      */
     public function index()
     {
-        return view('kecamatan');
+        $data['kecamatan']=Kecamatan::all();
+        return view('kecamatan')->with($data);
     }
 
     /**

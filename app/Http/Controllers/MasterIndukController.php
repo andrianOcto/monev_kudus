@@ -26,7 +26,7 @@ class MasterIndukController extends Controller
      */
     public function create()
     {
-        //
+        return view('add_data_induk');
     }
 
     /**
@@ -46,9 +46,9 @@ class MasterIndukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('detail_data_induk');
     }
 
     /**

@@ -31,4 +31,13 @@
       "autoWidth": true
     });
   });
+
+  
+  // fungsi delete untuk modal pada data desa
+  $(".hapus").click(function(){
+    var id = $(this).data('seq');
+    $('.id_delete').val(id);
+  });
+
+  
 </script>

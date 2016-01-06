@@ -26,7 +26,7 @@ class MasterLahanController extends Controller
      */
     public function create()
     {
-        //
+        return view('add_data_lahan');
     }
 
     /**
@@ -37,7 +37,7 @@ class MasterLahanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -57,9 +57,9 @@ class MasterLahanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('edit_data_lahan');
     }
 
     /**
