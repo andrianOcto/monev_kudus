@@ -17,23 +17,9 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset ("/bower_components/admin-lte/dist/js/demo.js") }}"></script>
 
-<script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
-
-<script src="{{ asset("js/jquery.iframe-transport.js")}}"></script>
-<!-- The basic File Upload plugin -->
-<script src="{{ asset("js/jquery.fileupload.js")}}"></script>
-<!-- The File Upload processing plugin -->
-<script src="{{ asset("js/jquery.fileupload-process.js")}}"></script>
-<!-- The File Upload image preview & resize plugin -->
-<script src="{{ asset("js/jquery.fileupload-image.js")}}"></script>
-<!-- The File Upload audio preview plugin -->
-<script src="{{ asset("js/jquery.fileupload-audio.js")}}"></script>
-<!-- The File Upload video preview plugin -->
-<script src="{{ asset("js/jquery.fileupload-video.js")}}"></script>
-<!-- The File Upload validation plugin -->
-<script src="{{ asset("js/jquery.fileupload-validate.js")}}"></script>
-
 <script>
+
+
   $(function () {
     $(".select2").select2();
 
@@ -54,6 +40,8 @@
     var id = $(this).data('seq');
     $('.id_delete').val(id);
   });
+
+
 
   
 </script>
