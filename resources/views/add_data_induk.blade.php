@@ -32,7 +32,7 @@
                       </div>
 
                     <!-- form input administrasi -->
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" id="form1">
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Wilayah kecamatan :</label>
 	            			<div class="col-sm-3">
@@ -68,7 +68,7 @@
 	            	</form>
 
                     <!-- form input pola ruang -->
-	            	<form class="form-horizontal">
+	            	<form class="form-horizontal" id="form2">
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Wilayah kecamatan :</label>
 	            			<div class="col-sm-3">
