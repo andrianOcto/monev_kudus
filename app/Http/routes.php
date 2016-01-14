@@ -16,17 +16,25 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('/','DashboardController@index')->middleware(['auth']);
 
+// route master kecamatan
 Route::get('/monitoring','MonitoringController@index')->middleware(['auth']);
 Route::get('/kecamatan','KecamatanController@index')->middleware(['auth']);
-
+Route::get('/tambahkecamatan','KecamatanController@create')->middleware(['auth']);
+Route::post('/kecamatan/add','KecamatanController@store')->middleware(['auth']);
+Route::post('/kecamatan/update/{id}','KecamatanController@update')->middleware(['auth']);
+Route::post('/kecamatan/delete','KecamatanController@destroy')->middleware(['auth']);
+Route::get('/editkecamatan/{id}','KecamatanController@edit')->middleware(['auth']);
 
 // route master desa
 Route::get('/desa','DesaController@index')->middleware(['auth']);
+Route::get('/tambahdesa','DesaController@create')->middleware(['auth']);
 Route::post('/desa/add','DesaController@store')->middleware(['auth']);
 Route::post('/desa/delete','DesaController@delete')->middleware(['auth']);
-Route::post('/desa/update','DesaController@update')->middleware(['auth']);
+Route::post('/desa/update/{id}','DesaController@update')->middleware(['auth']);
+Route::get('/editdesa/{id}','DesaController@edit')->middleware(['auth']);
 
 // route master lahan
+Route::get('/detaillahan/{id}','MasterLahanController@show')->middleware(['auth']);
 Route::get('/masterlahan','MasterLahanController@index')->middleware(['auth']);
 Route::get('/tambahlahan','MasterLahanController@create')->middleware(['auth']);
 Route::get('/editlahan/{id}','MasterLahanController@edit')->middleware(['auth']);
@@ -35,11 +43,18 @@ Route::post('/lahan/update/{id}','MasterLahanController@update')->middleware(['a
 Route::post('/lahan/delete/','MasterLahanController@destroy')->middleware(['auth']);
 
 // route master induk
-Route::get('/detailinduk','MasterIndukController@show')->middleware(['auth']);
+Route::get('/detailinduk/{id}','MasterIndukController@show')->middleware(['auth']);
 Route::get('/tambahdatainduk','MasterIndukController@create')->middleware(['auth']);
 Route::get('/masterinduk','MasterIndukController@index')->middleware(['auth']);
-// Route::get('/detaillahan','DetailLahanController@index');
+Route::post('/induk/add','MasterIndukController@store')->middleware(['auth']);
+Route::post('/induk/delete/','MasterIndukController@destroy')->middleware(['auth']);
+Route::get('/editinduk/{id}','MasterIndukController@edit')->middleware(['auth']);
+Route::post('/induk/update/{id}','MasterIndukController@update')->middleware(['auth']);
 
-Route::post('/upload','MasterLahanController@upload')->middleware(['auth']);
-
-Route::get('/users','UserController@index');
+// route master users
+Route::get('/users','UserController@index')->middleware(['auth']);
+Route::get('/tambahuser','UserController@create')->middleware(['auth']);
+Route::get('/edituser/{id}','UserController@edit')->middleware(['auth']);
+Route::post('/users/add','UserController@store')->middleware(['auth']);
+Route::post('/users/update/{id}','UserController@update')->middleware(['auth']);
+Route::post('/users/delete/','UserController@destroy')->middleware(['auth']);

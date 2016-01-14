@@ -109,7 +109,8 @@ class MasterLahanController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['lahan'] = Lahan::find($id);
+        return view('detail_lahan')->with($data);
     }
 
     /**

@@ -28,7 +28,7 @@ class KecamatanController extends Controller
      */
     public function create()
     {
-        //
+        return view('add_data_kecamatan');
     }
 
     /**
@@ -39,7 +39,20 @@ class KecamatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try
+        {
+            $kecamatan = new Kecamatan;
+            $kecamatan->kecamatan   = $request->input('kecamatan');
+            $kecamatan->luas        = $request->input('luas');
+            $kecamatan->save();
+            return redirect("/kecamatan")->with('successMessage', 'Data berhasil ditambahkan!');;
+        }
+
+        catch(\Illuminate\Database\QueryException $e)
+        {
+            return redirect("/kecamatan")->with('errMessage', $e);
+        }
+
     }
 
     /**
@@ -61,7 +74,8 @@ class KecamatanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['kecamatan'] = Kecamatan::find($id);
+        return view('edit_kecamatan')->with($data);
     }
 
     /**
@@ -73,7 +87,19 @@ class KecamatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try
+        {
+            $kecamatan = Kecamatan::find($id);
+            $kecamatan->kecamatan   = $request->input('kecamatan');
+            $kecamatan->luas        = $request->input('luas');
+            $kecamatan->save();
+            return redirect("/kecamatan")->with('successMessage', 'Data berhasil diupdate!');;
+        }
+
+        catch(\Illuminate\Database\QueryException $e)
+        {
+            return redirect("/kecamatan")->with('errMessage', $e);
+        }
     }
 
     /**
@@ -82,8 +108,10 @@ class KecamatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->input("id_delete");
+        Kecamatan::destroy($id);
+        return redirect('/kecamatan');
     }
 }

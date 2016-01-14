@@ -47,7 +47,7 @@
                       <td style="text-align:center"> <img src="{{ asset("files/lahan")}}/{{$data->path_peta}}" width="150px"> </td>
                       <td>{{$data->keterangan}}</td>
                       <td style="text-align:center">
-                          <a href="#" class="btn btn-primary btn-flat"><i class="fa fa-eye"></i> lihat</a>
+                          <a href="/detaillahan/{{$data->id}}" class="btn btn-primary btn-flat"><i class="fa fa-eye"></i> lihat</a>
                           <a href="/editlahan/{{$data->id}}" class="btn btn-warning btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
                           <a href="#modalDelete" data-toggle="modal" data-seq="{{$data->id}}" data-target="#modalDelete" class="hapus btn btn-danger btn-flat"><i class="fa fa-trash-o"></i> hapus</a>
                       </td>

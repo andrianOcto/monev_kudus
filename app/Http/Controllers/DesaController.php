@@ -24,7 +24,6 @@ class DesaController extends Controller
                         ->select('desa.id', 'desa.desa', 'kecamatan.kecamatan', 'desa.luas', 'desa.kecamatan as id_kecamatan')
                         ->orderBy('kecamatan.kecamatan', 'asc')
                         ->get();
-        $data['kecamatan'] = Kecamatan::all();
         return view('desa')->with($data);
     }
 
@@ -35,7 +34,8 @@ class DesaController extends Controller
      */
     public function create()
     {
-        //
+        $data['kecamatan'] = Kecamatan::all();
+        return view('add_data_desa')->with($data);
     }
 
     /**
@@ -81,7 +81,9 @@ class DesaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['kecamatan'] = Kecamatan::all();
+        $data['desa']=Desa::find($id);
+        return view('edit_desa')->with($data);
     }
 
     /**
@@ -91,14 +93,22 @@ class DesaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
-        $desa                 = Desa::find($request->input("id"));
-        $desa->desa           = $request->input("desa");
-        $desa->kecamatan      = $request->input("kecamatan");
-        $desa->luas           = $request->input("luas");
-        $desa->save();
-        return redirect("/desa")->with('successMessage', 'Data berhasil diupdate!');;
+        try
+        {
+            $desa                 = Desa::find($id);
+            $desa->desa           = $request->input("desa");
+            $desa->kecamatan      = $request->input("kecamatan");
+            $desa->luas           = $request->input("luas");
+            $desa->save();
+            return redirect("/desa")->with('successMessage', 'Data berhasil diupdate!');;
+        }
+
+        catch(\Illuminate\Database\QueryException $e)
+        {
+            return redirect("/desa")->with('errMessage', 'Kode yang disimpan sudah ada dalam database. </br> Harap Coba menggunakan kode yang belum ada');
+        }
     }
 
     /**

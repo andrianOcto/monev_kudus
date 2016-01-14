@@ -28,17 +28,21 @@
                   </tr>
                 </thead>
                 <tbody>
+                @foreach($induk as $data)
                   <tr>
-                      <td>Pola Ruang</td>
-                      <td></td>
-                      <td style="text-align:center"> <img src="" width="150px"> </td>
-                      <td>Peta Pola Ruang Kabupaten Kudus</td>
+                      <td><?php if($data->jenis==1) echo "Peta Administrasi";  ?>
+                          <?php if($data->jenis==2) echo "Peta Pola Ruang";  ?>
+                      </td>
+                      <td>{{$data->kecamatan}}</td>
+                      <td style="text-align:center"> <img src="{{ asset("files/induk")}}/{{$data->path_peta}}" width="150px"> </td>
+                      <td>{{$data->keterangan}}</td>
                       <td style="text-align:center">
-                          <a href="/detailinduk" class="btn btn-primary btn-flat"><i class="fa fa-eye"></i> lihat</a>
-                          <a href="#" class="btn btn-warning btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
-                          <a href="#modalDelete" data-toggle="modal" data-target="#modalDelete" class="btn btn-danger btn-flat"><i class="fa fa-trash-o"></i> hapus</a>
+                          <a href="/detailinduk/{{$data->id}}" class="btn btn-primary btn-flat"><i class="fa fa-eye"></i> lihat</a>
+                          <a href="/editinduk/{{$data->id}}" class="btn btn-warning btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
+                          <a href="#modalDelete" data-toggle="modal" data-seq="{{$data->id}}" data-target="#modalDelete" class="hapus btn btn-danger btn-flat"><i class="fa fa-trash-o"></i> hapus</a>
                       </td>
                   </tr>
+                @endforeach
                 </tbody>
                 </table>
                 </div>
@@ -80,7 +84,7 @@
         </div>
     </section>
 
-    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
@@ -91,7 +95,9 @@
       <h4> Apakah Anda Yakin Akan Menghapus Data? </h4>
     </div>
     <div class="modal-footer">
-      <form action="" method="">
+      <form action="induk/delete" method="post">
+        <?php echo csrf_field(); ?>
+        <input  type="hidden" name="id_delete" class="id_delete">
         <button type="submit" class="btn btn-danger btn-flat">Delete</button>
       </form>
     </div>

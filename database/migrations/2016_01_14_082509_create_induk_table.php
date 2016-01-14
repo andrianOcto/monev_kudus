@@ -21,24 +21,24 @@ class CreateIndukTable extends Migration
             $table->integer('tahun');
             
             // data luasan
-            $table->float('kcp2b');
-            $table->float('cagar_budaya');
-            $table->float('lindung_spiritual');
-            $table->float('hutan_rakyat');
-            $table->float('hutan_lindung');
-            $table->float('industri');
-            $table->float('pertanian_tanaman');
-            $table->float('hutan_produksi');
-            $table->float('hutan_produksi_terbatas');
-            $table->float('pariwisata');
-            $table->float('pertambangan');
-            $table->float('tanaman_pangan');
-            $table->float('pemukiman_pedesaan');
-            $table->float('pemukiman_perkotaan');
-            $table->float('tpa');
-            $table->float('sekitar_waduk');
-            $table->float('sekitar_mataair');
-            $table->float('sempadan_sungai');
+            $table->float('kcp2b')->nullable();
+            $table->float('cagar_budaya')->nullable();
+            $table->float('lindung_spiritual')->nullable();
+            $table->float('hutan_rakyat')->nullable();
+            $table->float('hutan_lindung')->nullable();
+            $table->float('industri')->nullable();
+            $table->float('pertanian_tanaman')->nullable();
+            $table->float('hutan_produksi')->nullable();
+            $table->float('hutan_produksi_terbatas')->nullable();
+            $table->float('pariwisata')->nullable();
+            $table->float('pertambangan')->nullable();
+            $table->float('tanaman_pangan')->nullable();
+            $table->float('pemukiman_pedesaan')->nullable();
+            $table->float('pemukiman_perkotaan')->nullable();
+            $table->float('tpa')->nullable();
+            $table->float('sekitar_waduk')->nullable();
+            $table->float('sekitar_mataair')->nullable();
+            $table->float('sempadan_sungai')->nullable();
 
             $table->timestamps();
         });

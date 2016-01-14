@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class UserController extends Controller
 {
@@ -16,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users');
+        $data['users'] = User::all();
+        return view('users')->with($data);
     }
 
     /**
@@ -26,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('add_user');
     }
 
     /**
@@ -37,7 +39,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try
+        {
+          $users                = new User;
+          $users->name          = $request->input("name");
+          $users->username       = $request->input("username");
+          $users->password      = bcrypt($request->input("password"));
+          $users->save();
+          return redirect("/users")->with('successMessage', 'Data berhasil ditambahkan!');;
+        }
+
+        catch(\Illuminate\Database\QueryException $e)
+        {
+          // return redirect("/users")->with('errMessage', 'Kode yang disimpan sudah ada dalam database. </br> Harap Coba menggunakan kode yang belum ada');
+          echo $e;
+        }
     }
 
     /**
@@ -59,7 +75,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['user'] = User::find($id);
+        return view('edit_user')->with($data);
     }
 
     /**
@@ -71,7 +88,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try
+        {
+          $users                = User::find($id);
+          $users->name          = $request->input("name");
+          $users->username       = $request->input("username");
+          $users->password      = bcrypt($request->input("password"));
+          $users->save();
+          return redirect("/users")->with('successMessage', 'Data berhasil ditambahkan!');;
+        }
+
+        catch(\Illuminate\Database\QueryException $e)
+        {
+          return redirect("/users")->with('errMessage', 'Kode yang disimpan sudah ada dalam database. </br> Harap Coba menggunakan kode yang belum ada');
+        }
     }
 
     /**
@@ -80,8 +110,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->input('id_delete');
+        User::destroy($id);
+        return redirect('/users');
     }
 }
