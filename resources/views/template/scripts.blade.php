@@ -18,6 +18,8 @@
 <script src="{{ asset ("/bower_components/admin-lte/dist/js/demo.js") }}"></script>
 
 <script>
+
+
   $(function () {
     $(".select2").select2();
 
@@ -61,4 +63,12 @@
     };
 
     FormStuff.init();
+</script>
+
+<script>
+    // fungsi delete untuk modal pada data desa
+    $(".hapus").click(function(){
+        var id = $(this).data('seq');
+        $('.id_delete').val(id);
+    });
 </script>

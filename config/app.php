@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'SomeRandomString'),
+    'key' => env('APP_KEY', 'IeZtx6psapwLHfvkY00TwtWJTzD07JnD'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -145,9 +145,9 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
         //pingpong-module
         'Pingpong\Modules\ModulesServiceProvider',
+
 
     ],
 

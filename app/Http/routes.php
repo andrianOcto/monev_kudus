@@ -10,18 +10,36 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-Route::get('/','DashboardController@index');
-Route::get('/users','UserController@index');
-Route::get('/masterinduk','MasterIndukController@index');
-Route::get('/masterlahan','MasterLahanController@index');
-Route::get('/monitoring','MonitoringController@index');
-Route::get('/kecamatan','KecamatanController@index');
-Route::get('/desa','DesaController@index');
-Route::get('/detailinduk','DetailIndukController@index');
+
+Route::get('/','DashboardController@index')->middleware(['auth']);
+
+Route::get('/monitoring','MonitoringController@index')->middleware(['auth']);
+Route::get('/kecamatan','KecamatanController@index')->middleware(['auth']);
+
+
+// route master desa
+Route::get('/desa','DesaController@index')->middleware(['auth']);
+Route::post('/desa/add','DesaController@store')->middleware(['auth']);
+Route::post('/desa/delete','DesaController@delete')->middleware(['auth']);
+Route::post('/desa/update','DesaController@update')->middleware(['auth']);
+
+// route master lahan
+Route::get('/masterlahan','MasterLahanController@index')->middleware(['auth']);
+Route::get('/tambahlahan','MasterLahanController@create')->middleware(['auth']);
+Route::get('/editlahan/{id}','MasterLahanController@edit')->middleware(['auth']);
+Route::post('/lahan/add','MasterLahanController@store')->middleware(['auth']);
+Route::post('/lahan/update/{id}','MasterLahanController@update')->middleware(['auth']);
+Route::post('/lahan/delete/','MasterLahanController@destroy')->middleware(['auth']);
+
+// route master induk
+Route::get('/detailinduk','MasterIndukController@show')->middleware(['auth']);
+Route::get('/tambahdatainduk','MasterIndukController@create')->middleware(['auth']);
+Route::get('/masterinduk','MasterIndukController@index')->middleware(['auth']);
 // Route::get('/detaillahan','DetailLahanController@index');
-Route::get('/tambahlahan','AddLahanController@index');
-Route::get('/editlahan','EditLahanController@index');
-Route::get('/tambahdatainduk','AddDataIndukController@index');
 
-Route::get('/login','LoginController@index');
+Route::post('/upload','MasterLahanController@upload')->middleware(['auth']);
+
+Route::get('/users','UserController@index');

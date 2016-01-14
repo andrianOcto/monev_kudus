@@ -34,7 +34,7 @@
             <li class="user-footer">
               
               <div style="text-align:center">
-                <a href="/login" class="btn btn-danger btn-flat" style="background-color:#DD4B39">Sign out</a>
+                <a href="auth/logout" class="btn btn-danger btn-flat" style="background-color:#DD4B39">Sign out</a>
               </div>
             </li>
           </ul>

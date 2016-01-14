@@ -24,15 +24,17 @@
                   </tr>
                 </thead>
                 <tbody>
+                @foreach($kecamatan as $data)
                     <tr>
-                      <td>01</td>
-                      <td>Kaliwungu</td>
-                      <td></td>
+                      <td>{{$data->id}}</td>
+                      <td>{{$data->kecamatan}}</td>
+                      <td>{{$data->luas}}</td>
                       <td style="text-align:center">
                           <a href="#modalUpdate" data-toggle="modal" data-target="#modalUpdate" class="btn btn-warning btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
                           <a href="#modalDelete" data-toggle="modal" data-target="#modalDelete" class="btn btn-danger btn-flat"><i class="fa fa-trash-o"></i> hapus</a>
                       </td>
                     </tr>
+                @endforeach
                     </tbody>
                 </table>
               </div>
