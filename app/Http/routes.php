@@ -27,9 +27,10 @@ Route::post('/desa/update','DesaController@update');
 // route master lahan
 Route::get('/masterlahan','MasterLahanController@index');
 Route::get('/tambahlahan','MasterLahanController@create');
-Route::get('/editlahan','MasterLahanController@edit');
+Route::get('/editlahan/{id}','MasterLahanController@edit');
 Route::post('/lahan/add','MasterLahanController@store');
-Route::post('/lahan/update','MasterLahanController@update');
+Route::post('/lahan/update/{id}','MasterLahanController@update');
+Route::post('/lahan/delete/','MasterLahanController@destroy');
 
 // route master induk
 Route::get('/detailinduk','MasterIndukController@show');
@@ -40,3 +41,4 @@ Route::get('/masterinduk','MasterIndukController@index');
 
 
 Route::get('/login','LoginController@index');
+Route::post('/upload','MasterLahanController@upload');

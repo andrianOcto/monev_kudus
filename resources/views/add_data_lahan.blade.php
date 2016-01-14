@@ -20,13 +20,25 @@
 	            </div><!-- /.box-header -->
 	            
 	            <div class="box-body">
-	            	<form class="form-horizontal" method="post" action="lahan/add">
+	            	<form class="form-horizontal" method="post" enctype="multipart/form-data" action="lahan/add">
 	            	<?php echo csrf_field(); ?>
+	            		<div class="form-group">
+	            			<label class="col-sm-3 control-label">Jenis :</label>
+	            			<div class="col-sm-3">
+	            				<select class="form-control select2" id="jenis" name="jenis">
+	            					<option value="1">jenis 1</option>
+	            					<option value="2">jenis 2</option>
+	            					<option value="3">jenis 3</option>
+	            				</select>
+	            			</div>
+	            		</div>
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Wilayah kecamatan :</label>
 	            			<div class="col-sm-3">
 	            				<select class="form-control select2" id="kecamatan" name="kecamatan">
-	            					<option value="">Jati</option>
+	            					@foreach($kecamatan as $data)
+	            					<option value="{{$data->id}}">{{$data->kecamatan}}</option>
+	            					@endforeach
 	            				</select>
 	            			</div>
 	            		</div>
@@ -39,7 +51,7 @@
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Peta :</label>
 	            			<div class="col-sm-5">
-	            				<input type="file" class="form-control" style="border:none; padding:0px" required name="peta">
+	            				<input type="file" class="form-control" style="border:none; padding:0px" name="path_peta">
 	            			</div>
 	            		</div>
 	            		<div class="form-group">
@@ -81,7 +93,7 @@
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Kawasan Pertanian Tanaman :</label>
 	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="pertanian-tanaman" name="peta_tanaman">
+	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="pertanian-tanaman" name="pertanian_tanaman">
 	            			</div>
 	            		</div>
 	            		<div class="form-group">
@@ -117,13 +129,13 @@
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Pemukiman Pedesaan :</label>
 	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="pedesaan" name="pedesaan">
+	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="pedesaan" name="pemukiman_pedesaan">
 	            			</div>
 	            		</div>
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Pemukiman Perkotaan :</label>
 	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="perkotaan" name="perkotaan">
+	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="perkotaan" name="pemukiman_perkotaan">
 	            			</div>
 	            		</div>
 	            		<div class="form-group">
@@ -135,13 +147,13 @@
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Sekitar Waduk :</label>
 	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="waduk" name="waduk">
+	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="waduk" name="sekitar_waduk">
 	            			</div>
 	            		</div>
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Sekitar Mata Air :</label>
 	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="mata-air" name="mata_air">
+	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="mata-air" name="sekitar_mataair">
 	            			</div>
 	            		</div>
 	            		<div class="form-group">
