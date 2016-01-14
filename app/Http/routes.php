@@ -42,3 +42,4 @@ Route::get('/masterinduk','MasterIndukController@index')->middleware(['auth']);
 
 Route::post('/upload','MasterLahanController@upload')->middleware(['auth']);
 
+Route::get('/users','UserController@index');
