@@ -10,9 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
 
 Route::get('/','DashboardController@index');
-Route::get('/users','UserController@index');
 
 Route::get('/monitoring','MonitoringController@index');
 Route::get('/kecamatan','KecamatanController@index');
@@ -37,6 +39,3 @@ Route::get('/tambahdatainduk','MasterIndukController@create');
 Route::get('/masterinduk','MasterIndukController@index');
 // Route::get('/detaillahan','DetailLahanController@index');
 
-
-
-Route::get('/login','LoginController@index');

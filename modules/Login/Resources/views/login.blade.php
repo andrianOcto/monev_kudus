@@ -12,8 +12,9 @@
     </div>
     <center>
     <div class="login-box-body" style="padding-top:30px; width:50%">
-    <form action="" method="">
+    <form action="auth/login" method="post">
       <div class="form-group has-feedback">
+         {!! csrf_field() !!}
         <input type="hidden" class="form-control" name="type" value="login" required>
         <input type="text" class="form-control" placeholder="Username" name="username">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>

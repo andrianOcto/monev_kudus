@@ -10,7 +10,7 @@ class UsersTableSeeder extends Seeder{
 			'name' => 'deny salvana',
 			'username' => 'deny',
 			'password' => bcrypt('password'),
-
+			'role'	   => 'admin',
 			]);
 	}
 }

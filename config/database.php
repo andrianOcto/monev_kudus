@@ -55,7 +55,7 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'monev_kudus',
+            'database'  => 'monev_dev',
             'username'  => 'root',
             'password'  => '',
             'charset'   => 'utf8',
