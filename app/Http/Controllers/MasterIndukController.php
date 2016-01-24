@@ -228,6 +228,109 @@ class MasterIndukController extends Controller
     }
     
     public function export(){
+        $query = DB::table('lahan')
+                    -> join('kecamatan', 'lahan.kecamatan', '=', 'kecamatan.kecamatan')
+                    -> join('jenis', 'lahan.jenis', '=', 'jenis_peta.jenis')
+                    -> select ('kecamatan.kecamatan as wilayah', 'jenis_peta.jenis as peta', 'lahan.tahun', 'lahan.hutan_lindung', 'lahan.kawasan_bawahan', 'lahan.sempadan_sungai', 'lahan.sekitar_danauwaduk', 'lahan.sekitar_mataair', 'lahan.lindung_spiritual', 'lahan.rth', 'lahan.cagar_budaya', 'lahan.rawan_bencana', 'lahan.lindung_geologi', 'lahan.hutan_produksi', 'lahan.hutan_rakyat', 'lahan.pertanian', 'lahan.perikanan', 'lahan.pertambangan', 'lahan.industri', 'lahan.pariwisata', 'lahan.pemukiman', 'lahan.perkebunan', 'lahan.pertahanan', 'lahan.keterangan')
+                    -> get();
         
+        $i=0;
+        $datatabel = array();
+        foreach($query as $data1){
+            
+            $result['kecamatan'] = $data1->wilayah;
+            $result['peta'] = $data1->peta;
+            $result['tahun'] = $data1->tahun;
+            $result['hutan_lindung'] = $data1->hutan_lindung;
+            $result['kawasan_bawahan'] = $data1->kawasan_bawahan;
+            $result['sempadan_sungai'] = $data1->sempadan_sungai;
+            $result['sekitar_danauwaduk'] = $data1->sekitar_danauwaduk;
+            $result['sekitar_mataair'] = $data1->sekitar_mataair;
+            $result['lindung_spiritual'] = $data1->lindung_spiritual;
+            $result['rth'] = $data1->rth;
+            $result['cagar_budaya'] = $data1->cagar_budaya;
+            $result['rawan_bencana'] = $data->rawan_bencana;
+            $result['lindung_geologi'] = $data1->lindung->geologi;
+            $result['hutan_produksi'] = $data1->hutan_produksi;
+            $result['hutan_rakyat'] = $data1->hutan_rakyat;
+            $result['perkebunan'] = $data1->perkebunan;
+            $result['pertanian'] = $data1->pertanian;
+            $result['pariwisata'] = $data1->pariwisata;
+            $result['pemukiman'] = $data1->pemukiman;
+            $result['pertahanan'] = $data1->pertahanan;
+            $result['keterangan'] = $data1->keterangan;
+            
+            $datatabel[$i] = $result;
+            $i++;
+        }
+        
+        $data = array(
+            //title
+            array('DATA PETA  WILAYAH KABUPATEN KUDUS'),
+            array(''),
+            //header
+            array('Wilayah', 'Jenis Peta', 'Tahun', 'Luasan Area'),
+            array('', '', '', 'Kawasan Hutan Lindung', 'Kawasan Yang Memberikan Perlindungan Terhadap Kawasan Bawahannya', 'Sempadan Sungai', 'Kawasan Sekitar Danau atau Waduk', 'Kawasan Sekitar Mata Air', 'Kawasan Lindung Spiritual dan Kearifan Lokal', 'Kawasan Ruang Terbuka Hijau', 'Kawasan Cagar Budaya', 'Kawasan Rawan Bencana Alam', 'Kawasan Lindung Geologi', 'Kawasan Peruntukan Hutan Produksi', 'Kawasan Peruntukan Hutan Rakyat', 'Kawasan Peruntukan Perkebunan', 'Kawasan Peruntukan Pertanian', 'Kawasan Peruntukan Pariwisata', 'Kawasan Peruntukan Pemukimam', 'Kawasan Peruntukan Pertahanan', 'Keterangan')
+        );
+        
+        $i=0;
+        $startArray=4;
+        foreach($datatabel as $key){
+            $data[$startArray] =$datatabel[$i]; 
+            
+            $i++;
+            $startArray++;
+        }
+        
+        Excel::create('Data Peta Landuse Wilayah Kabupaten Kudus', function($excel) use($data) {
+            $excel->sheet('lahan landuse', function($sheet) use($data){
+                
+                //document manipulation
+                $sheet->setOrientation('landscape');
+                
+                //cells manupulation
+                
+                $sheet->mergeCells('A1:U1');
+                $sheet->cells('A1:U1', function($cells){
+                    $cells->setFontSize(14);
+                    $cells->setFontWeight('bold');
+                    $cells->setAlignment('center');
+                });
+                
+                $sheet->mergeCells('A3:A4');
+                $sheet->cells('A3:A4', function($cells){
+                    $cells->setValignment('middle');
+                });
+                
+                $sheet->mergeCells('B3:B4');
+                $sheet->cells('B3:B4', function($cells){
+                    $cells->setValignment('middle');
+                });
+                
+                $sheet->mergeCells('C3:C4');
+                $sheet->cells('C3:C4', function($cells){
+                    $cells->setValignment('middle');
+                });
+                
+                $sheet->mergeCells('D3:T3');
+                $sheet->cells('D3:T3', function($cells){
+                    $cells->setValignment('middle');
+                });
+                
+                $sheet->mergeCells('U3:U4');
+                $sheet->cells('U3:U4', function($cells){
+                    $cells->setValignment('middle');
+                });
+                
+                $sheet->cells('A3:U4', function($cells){
+                    $cells->setAlignment('center');
+                    $cells->setFontWeight('bold');
+                });
+                
+                //data
+                $sheet->fromArray($data, null, 'A1', false, false);
+                
+            });
+        })->download('xlsx');
     }
 }
