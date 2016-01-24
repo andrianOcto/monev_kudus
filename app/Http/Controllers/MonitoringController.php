@@ -34,7 +34,9 @@ class MonitoringController extends Controller
 
         $data['perijinan']      = DB::table('perijinan')
             ->join('desa', 'perijinan.desa', '=', 'desa.id')
+            ->join('kecamatan', 'perijinan.kecamatan', '=', 'kecamatan.id')
             ->select('perijinan.pemanfaatan_ruang', 'perijinan.pemilik', 'desa.desa')
+            ->where('kecamatan.id', '=', 1)
             ->get();
 
         $data['kabupaten']      = Induk::where('kecamatan', '=', 15)
@@ -65,7 +67,9 @@ class MonitoringController extends Controller
         
         $data['perijinan']      = DB::table('perijinan')
             ->join('desa', 'perijinan.desa', '=', 'desa.id')
+            ->join('kecamatan', 'perijinan.kecamatan', '=', 'kecamatan.id')
             ->select('perijinan.pemanfaatan_ruang', 'perijinan.pemilik', 'desa.desa')
+            ->where('kecamatan.id', '=', $idKecamatan)
             ->get();
 
         $data['namaKecamatan']  = $defaultName;
