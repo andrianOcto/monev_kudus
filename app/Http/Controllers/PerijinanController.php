@@ -11,7 +11,7 @@ use App\Perijinan;
 use App\Kecamatan;
 use DB;
 
-//use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PerijinanController extends Controller
 {
@@ -131,6 +131,64 @@ class PerijinanController extends Controller
     }
     
     public function export(){
+        $query = DB::table('perijinan')
+                    -> join ('kecamatan', 'perijinan.kecamatan', '=', 'kecamatan.id')
+                    -> join ('desa', 'perijinan.desa', '=', 'desa.id')
+                    -> select ('perijinan.pemanfaatan_ruang', 'perijinan.pemilik', 'kecamatan.kecamatan as wilayah', 'desa.desa as kelurahan')
+                    ->get();
         
+        $i=0;
+        $datatabel = array();
+        foreach($query as $data1){
+            
+            $result['pemanfaatan_ruang'] = $data1->pemanfaatan_ruang;
+            $result['pemilik'] = $data1->pemilik;
+            $result['wilayah'] = $data1->wilayah;
+            $result['kelurahan'] = $data1->kelurahan;
+            
+            $datatabel[$i] = $result;
+            $i++;
+        }
+        
+        $data = array(
+            //title
+            array('DAFTAR PERIJINAN PEMANFAATAN RUANG KABUPATEN KUDUS'),
+            array(''),
+            //header
+            array('Jenis Pemanfaatan Ruang', 'Pemilik (Atas Nama)', 'Kecamatan', 'Desa/Kelurahan')
+        );
+        
+        $i=0;
+        $startArray=3;
+        foreach($datatabel as $key){
+            $data[$startArray] =$datatabel[$i]; 
+            
+            $i++;
+            $startArray++;
+        }
+        
+        Excel::create('Daftar perijinan pemanfaatan ruang', function($excel) use($data) {
+            $excel->sheet('pemanfaatan ruang', function($sheet) use($data){
+                
+                //document manipulation
+                $sheet->setOrientation('portrait');
+                
+                //cells manupulation
+                $sheet->mergeCells('A1:D1');
+                $sheet->cells('A1:D1', function($cells){
+                    $cells->setFontSize(14);
+                    $cells->setFontWeight('bold');
+                    $cells->setAlignment('center');
+                });
+                $sheet->cells('A3:D3', function($cells){
+                    $cells->setAlignment('center');
+                    $cells->setFontWeight('bold');
+                });
+                
+                //data
+                $sheet->fromArray($data, null, 'A1', false, false);
+                
+            });
+        })->download('xlsx');
     }
 }

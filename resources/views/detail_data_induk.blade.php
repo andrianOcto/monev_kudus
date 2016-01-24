@@ -15,7 +15,7 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">edited: {{$induk->updated_at}}</h3>
-                    <a style="float:right" href="/editinduk/{{$data->id}}" class="btn btn-primary btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
+                    <a style="float:right" href="/editinduk/{{$induk->id}}" class="btn btn-primary btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <h2 style="margin-bottom:20px">Wilayah Kecamatan {{$induk->kecamatan}}</h2>

@@ -15,7 +15,7 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">edited: {{$lahan->updated_at}}</h3>
-                    <a style="float:right" href="/editlahan/{{$data->id}}" class="btn btn-primary btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
+                    <a style="float:right" href="/editlahan/{{$lahan->id}}" class="btn btn-primary btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <h2 style="margin-bottom:20px">Wilayah Kecamatan {{$lahan->kecamatan}}</h2>

@@ -228,10 +228,10 @@ class MasterIndukController extends Controller
     }
     
     public function export(){
-        $query = DB::table('lahan')
-                    -> join('kecamatan', 'lahan.kecamatan', '=', 'kecamatan.kecamatan')
-                    -> join('jenis', 'lahan.jenis', '=', 'jenis_peta.jenis')
-                    -> select ('kecamatan.kecamatan as wilayah', 'jenis_peta.jenis as peta', 'lahan.tahun', 'lahan.hutan_lindung', 'lahan.kawasan_bawahan', 'lahan.sempadan_sungai', 'lahan.sekitar_danauwaduk', 'lahan.sekitar_mataair', 'lahan.lindung_spiritual', 'lahan.rth', 'lahan.cagar_budaya', 'lahan.rawan_bencana', 'lahan.lindung_geologi', 'lahan.hutan_produksi', 'lahan.hutan_rakyat', 'lahan.pertanian', 'lahan.perikanan', 'lahan.pertambangan', 'lahan.industri', 'lahan.pariwisata', 'lahan.pemukiman', 'lahan.perkebunan', 'lahan.pertahanan', 'lahan.keterangan')
+        $query = DB::table('induk')
+                    -> join('kecamatan', 'induk.kecamatan', '=', 'kecamatan.id')
+                    -> join('jenis_peta', 'induk.jenis', '=', 'jenis_peta.id')
+                    -> select ('kecamatan.kecamatan as wilayah', 'jenis_peta.jenis as peta', 'induk.tahun', 'induk.hutan_lindung', 'induk.kawasan_bawahan', 'induk.sempadan_sungai', 'induk.sekitar_danauwaduk', 'induk.sekitar_mataair', 'induk.lindung_spiritual', 'induk.rth', 'induk.cagar_budaya', 'induk.rawan_bencana', 'induk.lindung_geologi', 'induk.hutan_produksi', 'induk.hutan_rakyat', 'induk.pertanian', 'induk.perikanan', 'induk.pertambangan', 'induk.industri', 'induk.pariwisata', 'induk.pemukiman', 'induk.perkebunan', 'induk.pertahanan', 'induk.keterangan')
                     -> get();
         
         $i=0;
@@ -249,8 +249,8 @@ class MasterIndukController extends Controller
             $result['lindung_spiritual'] = $data1->lindung_spiritual;
             $result['rth'] = $data1->rth;
             $result['cagar_budaya'] = $data1->cagar_budaya;
-            $result['rawan_bencana'] = $data->rawan_bencana;
-            $result['lindung_geologi'] = $data1->lindung->geologi;
+            $result['rawan_bencana'] = $data1->rawan_bencana;
+            $result['lindung_geologi'] = $data1->lindung_geologi;
             $result['hutan_produksi'] = $data1->hutan_produksi;
             $result['hutan_rakyat'] = $data1->hutan_rakyat;
             $result['perkebunan'] = $data1->perkebunan;
@@ -283,7 +283,7 @@ class MasterIndukController extends Controller
         }
         
         Excel::create('Data Peta Landuse Wilayah Kabupaten Kudus', function($excel) use($data) {
-            $excel->sheet('lahan landuse', function($sheet) use($data){
+            $excel->sheet('lahan', function($sheet) use($data){
                 
                 //document manipulation
                 $sheet->setOrientation('landscape');

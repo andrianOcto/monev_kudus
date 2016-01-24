@@ -12,6 +12,7 @@
           <div class="box">
             <div class="box-header">
               <a href="/tambahperijinan" class="btn btn-primary btn-flat btn-lg">+ Tambah Data Perijinan</a>
+                <a href="/perijinan/export" class="btn btn-success btn-flat btn-lg" style="float:right">Export Excel</a>
             </div><!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
