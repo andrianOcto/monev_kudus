@@ -148,7 +148,8 @@ return [
         //pingpong-module
         'Pingpong\Modules\ModulesServiceProvider',
         //export excel
-        'Maatwebsite\Excel\ExcelServiceProvider',
+         'Maatwebsite\Excel\ExcelServiceProvider',
+
 
     ],
 
