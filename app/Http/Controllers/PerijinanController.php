@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Desa;
+use App\Perijinan;
+use App\Kecamatan;
+use DB;
 
 class PerijinanController extends Controller
 {
@@ -16,7 +20,12 @@ class PerijinanController extends Controller
      */
     public function index()
     {
-        return view('perijinan');
+        $data['perijinan'] = DB::table('perijinan')
+                        ->join('kecamatan', 'perijinan.kecamatan', '=', 'kecamatan.id')
+                        ->join('desa', 'perijinan.desa', '=', 'desa.id')
+                        ->select('desa.desa', 'kecamatan.kecamatan', 'perijinan.id', 'perijinan.pemanfaatan_ruang', 'perijinan.pemilik')
+                        ->get();
+        return view('perijinan')->with($data);
     }
 
     /**
@@ -26,7 +35,8 @@ class PerijinanController extends Controller
      */
     public function create()
     {
-        return view('add_data_perijinan');
+        $data['kecamatan'] = Kecamatan::all();
+        return view('add_data_perijinan')->with($data);
     }
 
     /**
@@ -37,7 +47,21 @@ class PerijinanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try
+        {
+          $perijinan                    = new Perijinan;
+          $perijinan->desa              = $request->input("desa");
+          $perijinan->kecamatan         = $request->input("kecamatan");
+          $perijinan->pemanfaatan_ruang = $request->input("pemanfaatan_ruang");
+          $perijinan->pemilik           = $request->input("pemilik");
+          $perijinan->save();
+          return redirect("/perijinan")->with('successMessage', 'Data berhasil ditambahkan!');;
+        }
+
+        catch(\Illuminate\Database\QueryException $e)
+        {
+          return redirect("/perijinan")->with('errMessage', 'Kode yang disimpan sudah ada dalam database. </br> Harap Coba menggunakan kode yang belum ada');
+        }
     }
 
     /**
@@ -57,9 +81,12 @@ class PerijinanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        return view('edit_perijinan');
+        $data['desa'] = Desa::all();
+        $data['kecamatan'] = Kecamatan::all();
+        $data['perijinan'] = Perijinan::find($id);
+        return view('edit_perijinan')->with($data);
     }
 
     /**
@@ -71,7 +98,21 @@ class PerijinanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         try
+        {
+          $perijinan                    = Perijinan::find($id);
+          $perijinan->desa              = $request->input("desa");
+          $perijinan->kecamatan         = $request->input("kecamatan");
+          $perijinan->pemanfaatan_ruang = $request->input("pemanfaatan_ruang");
+          $perijinan->pemilik           = $request->input("pemilik");
+          $perijinan->save();
+          return redirect("/perijinan")->with('successMessage', 'Data berhasil ditambahkan!');;
+        }
+
+        catch(\Illuminate\Database\QueryException $e)
+        {
+          return redirect("/perijinan")->with('errMessage', 'Kode yang disimpan sudah ada dalam database. </br> Harap Coba menggunakan kode yang belum ada');
+        }
     }
 
     /**
@@ -80,8 +121,10 @@ class PerijinanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->input("id_delete");
+        Perijinan::destroy($id);
+        return redirect('/perijinan');
     }
 }

@@ -21,12 +21,16 @@
                 </div><!-- /.box-header -->
                 
                 <div class="box-body">
-                    <form class="form-horizontal" method="post" action="/desa/add">
+                    <form class="form-horizontal" method="post" action="/perijinan/add">
+                    <?php echo csrf_field(); ?>
                       <div class="form-group">
                         <label class="col-sm-3 control-label">Kecamatan :</label>
                         <div class="col-sm-3">
                           <select class="form-control select2" id="kecamatan" name="kecamatan">
-                            <option value="">Kota</option>
+                          <option>-Pilih Kecamatan-</option>
+                          @foreach($kecamatan as $data)
+                            <option value="{{$data->id}}">{{$data->kecamatan}}</option>
+                            @endforeach
                           </select>
                         </div>
                       </div>
@@ -34,7 +38,7 @@
                         <label class="col-sm-3 control-label">Desa/Kelurahan :</label>
                         <div class="col-sm-3">
                           <select class="form-control select2" id="desa" name="desa">
-                            <option value="">Purwosari</option>
+                            <option>-Pilih Desa-</option>
                           </select>
                         </div>
                       </div>

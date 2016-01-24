@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Desa;
 use App\Kecamatan;
 use DB;
+use Response;
 
 class DesaController extends Controller
 {
@@ -122,5 +123,11 @@ class DesaController extends Controller
         $id = $request->input("id_delete");
         Desa::destroy($id);
         return redirect('/desa');
+    }
+
+    public function getDesa($id)
+    {
+        $desa = Desa::where('kecamatan','=', $id)->get();
+        return Response::json($desa)->header('access-control-allow-origin', '*');
     }
 }

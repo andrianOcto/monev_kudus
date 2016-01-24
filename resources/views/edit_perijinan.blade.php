@@ -21,12 +21,15 @@
                 </div><!-- /.box-header -->
                 
                 <div class="box-body">
-                    <form class="form-horizontal" method="post" action="/desa/add">
+                    <form class="form-horizontal" method="post" action="http://localhost:8000/perijinan/update/{{$perijinan->id}}">
+                    <?php echo csrf_field(); ?>
                       <div class="form-group">
                         <label class="col-sm-3 control-label">Kecamatan :</label>
                         <div class="col-sm-3">
                           <select class="form-control select2" id="kecamatan" name="kecamatan">
-                            <option value="">Kota</option>
+                            @foreach($kecamatan as $data)
+                            <option <?php if ($data->id == $perijinan->kecamatan) echo "selected"; ?> value="{{$data->id}}">{{$data->kecamatan}}</option>
+                            @endforeach
                           </select>
                         </div>
                       </div>
@@ -34,20 +37,22 @@
                         <label class="col-sm-3 control-label">Desa/Kelurahan :</label>
                         <div class="col-sm-3">
                           <select class="form-control select2" id="desa" name="desa">
-                            <option value="">Purwosari</option>
+                          @foreach($desa as $data)
+                            <option value="{{$data->id}}" <?php if($data->id==$perijinan->desa) echo "selected"; ?>>{{$data->desa}}</option>
+                            @endforeach
                           </select>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-sm-3 control-label">Jenis Pemanfaatan Ruang :</label>
                         <div class="col-sm-7">
-                          <textarea class="form-control" rows="3" required name="pemanfaatan_ruang" value=""></textarea>
+                          <textarea class="form-control" rows="3" required name="pemanfaatan_ruang" value="">{{$perijinan->pemanfaatan_ruang}}</textarea>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-sm-3 control-label">Pemilik (Atas Nama) :</label>
                         <div class="col-sm-7">
-                          <textarea class="form-control" rows="1" required name="pemilik" style="width:100%" value=""></textarea>
+                          <textarea class="form-control" rows="1" required name="pemilik" style="width:100%" value="">{{$perijinan->pemilik}}</textarea>
                         </div>
                       </div>
                       <div class="form-group">
