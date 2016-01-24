@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(DesaTableSeeder::class);
         $this->call(JenispetaTableSeeder::class);
         $this->call(LahanTableSeeder::class);
+        $this->call(PerijinanTableSeeder::class);
 
         Model::reguard();
     }

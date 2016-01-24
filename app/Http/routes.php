@@ -58,3 +58,8 @@ Route::get('/edituser/{id}','UserController@edit')->middleware(['auth']);
 Route::post('/users/add','UserController@store')->middleware(['auth']);
 Route::post('/users/update/{id}','UserController@update')->middleware(['auth']);
 Route::post('/users/delete/','UserController@destroy')->middleware(['auth']);
+
+// route master perijinan
+Route::get('/perijinan','PerijinanController@index');
+Route::get('/tambahperijinan','PerijinanController@create');
+Route::get('/editperijinan','PerijinanController@edit');

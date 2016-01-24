@@ -38,7 +38,7 @@
                         <div class="form-group">
                           <label class="col-sm-3 control-label"></label>
                           <div class="col-sm-4">
-                            <input type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary btn-flat">Simpan</button>
                           </div>
                         </div>
                         

@@ -3,8 +3,8 @@
 @section('main-content')
 
 <section class="content-header">
+    <h1>Data Master Kecamatan</h1>
     <ol class="breadcrumb" id="breadcrumb-dPeta">
-        <h1>Data Master Kecamatan</h1>
         <li><a href="/kecamatan"><i class="fa fa-circle-o"></i> Data Kecamatan</a></li>
         <li class="active">Edit Kecamatan</li>
     </ol>
@@ -37,7 +37,7 @@
                         <div class="form-group">
                           <label class="col-sm-3 control-label"></label>
                           <div class="col-sm-4">
-                            <input type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary btn-flat">Simpan</button>
                           </div>
                         </div>
                         
