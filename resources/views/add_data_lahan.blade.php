@@ -22,16 +22,7 @@
 	            <div class="box-body">
 	            	<form class="form-horizontal" method="post" enctype="multipart/form-data" action="lahan/add">
 	            	<?php echo csrf_field(); ?>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Jenis :</label>
-	            			<div class="col-sm-3">
-	            				<select class="form-control select2" id="jenis" name="jenis">
-	            					<option value="1">jenis 1</option>
-	            					<option value="2">jenis 2</option>
-	            					<option value="3">jenis 3</option>
-	            				</select>
-	            			</div>
-	            		</div>
+	            		
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Wilayah :</label>
 	            			<div class="col-sm-3">

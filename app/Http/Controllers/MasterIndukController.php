@@ -28,9 +28,9 @@ class MasterIndukController extends Controller
 
         $data['induk'] = DB::table('induk')
                         ->join('kecamatan', 'induk.kecamatan', '=', 'kecamatan.id')
-                        ->select('induk.id', 'induk.path_peta', 'induk.jenis', 'induk.keterangan', 'kecamatan.kecamatan as kecamatan')
+                        ->join('jenis_peta', 'induk.jenis', '=', 'jenis_peta.id')
+                        ->select('induk.id', 'induk.path_peta', 'jenis_peta.jenis', 'induk.keterangan', 'kecamatan.kecamatan')
                         ->get();
-        $data['induk'] = Induk::all();
         $data['kecamatan'] = Kecamatan::all();
 
         return view('master_data_induk')->with($data);
@@ -66,26 +66,26 @@ class MasterIndukController extends Controller
           
           if ($jenis==2) 
           {
-              $lahan->hutan_lindung     = $request->input('hutan_lindung');
-              $lahan->kawasan_bawahan   = $request->input('kawasan_bawahan');
-              $lahan->sempadan_sungai   = $request->input('sempadan_sungai');
-              $lahan->sekitar_danauwaduk= $request->input('sekitar_danauwaduk');
-              $lahan->sekitar_mataair   = $request->input('sekitar_mataair');
-              $lahan->lindung_spiritual = $request->input('lindung_spiritual');
-              $lahan->rth               = $request->input('rth');
-              $lahan->cagar_budaya      = $request->input('cagar_budaya');
-              $lahan->rawan_bencana     = $request->input('rawan_bencana');
-              $lahan->lindung_geologi   = $request->input('lindung_geologi');
-              $lahan->hutan_produksi    = $request->input('hutan_produksi');
-              $lahan->hutan_rakyat      = $request->input('hutan_rakyat');
-              $lahan->pertanian         = $request->input('pertanian');
-              $lahan->perikanan         = $request->input('perikanan');
-              $lahan->pertambangan      = $request->input('pertambangan');
-              $lahan->industri          = $request->input('industri');
-              $lahan->pariwisata        = $request->input('pariwisata');
-              $lahan->pemukiman         = $request->input('pemukiman');
-              $lahan->perkebunan        = $request->input('perkebunan');
-              $lahan->pertahanan        = $request->input('pertahanan');
+              $induk->hutan_lindung     = $request->input('hutan_lindung');
+              $induk->kawasan_bawahan   = $request->input('kawasan_bawahan');
+              $induk->sempadan_sungai   = $request->input('sempadan_sungai');
+              $induk->sekitar_danauwaduk= $request->input('sekitar_danauwaduk');
+              $induk->sekitar_mataair   = $request->input('sekitar_mataair');
+              $induk->lindung_spiritual = $request->input('lindung_spiritual');
+              $induk->rth               = $request->input('rth');
+              $induk->cagar_budaya      = $request->input('cagar_budaya');
+              $induk->rawan_bencana     = $request->input('rawan_bencana');
+              $induk->lindung_geologi   = $request->input('lindung_geologi');
+              $induk->hutan_produksi    = $request->input('hutan_produksi');
+              $induk->hutan_rakyat      = $request->input('hutan_rakyat');
+              $induk->pertanian         = $request->input('pertanian');
+              $induk->perikanan         = $request->input('perikanan');
+              $induk->pertambangan      = $request->input('pertambangan');
+              $induk->industri          = $request->input('industri');
+              $induk->pariwisata        = $request->input('pariwisata');
+              $induk->pemukiman         = $request->input('pemukiman');
+              $induk->perkebunan        = $request->input('perkebunan');
+              $induk->pertahanan        = $request->input('pertahanan');
           }
 
           // file
@@ -163,26 +163,26 @@ class MasterIndukController extends Controller
           
           if ($jenis==2) 
           {
-            $lahan->hutan_lindung     = $request->input('hutan_lindung');
-            $lahan->kawasan_bawahan   = $request->input('kawasan_bawahan');
-            $lahan->sempadan_sungai   = $request->input('sempadan_sungai');
-            $lahan->sekitar_danauwaduk= $request->input('sekitar_danauwaduk');
-            $lahan->sekitar_mataair   = $request->input('sekitar_mataair');
-            $lahan->lindung_spiritual = $request->input('lindung_spiritual');
-            $lahan->rth               = $request->input('rth');
-            $lahan->cagar_budaya      = $request->input('cagar_budaya');
-            $lahan->rawan_bencana     = $request->input('rawan_bencana');
-            $lahan->lindung_geologi   = $request->input('lindung_geologi');
-            $lahan->hutan_produksi    = $request->input('hutan_produksi');
-            $lahan->hutan_rakyat      = $request->input('hutan_rakyat');
-            $lahan->pertanian         = $request->input('pertanian');
-            $lahan->perikanan         = $request->input('perikanan');
-            $lahan->pertambangan      = $request->input('pertambangan');
-            $lahan->industri          = $request->input('industri');
-            $lahan->pariwisata        = $request->input('pariwisata');
-            $lahan->pemukiman         = $request->input('pemukiman');
-            $lahan->perkebunan        = $request->input('perkebunan');
-            $lahan->pertahanan        = $request->input('pertahanan');
+            $induk->hutan_lindung     = $request->input('hutan_lindung');
+            $induk->kawasan_bawahan   = $request->input('kawasan_bawahan');
+            $induk->sempadan_sungai   = $request->input('sempadan_sungai');
+            $induk->sekitar_danauwaduk= $request->input('sekitar_danauwaduk');
+            $induk->sekitar_mataair   = $request->input('sekitar_mataair');
+            $induk->lindung_spiritual = $request->input('lindung_spiritual');
+            $induk->rth               = $request->input('rth');
+            $induk->cagar_budaya      = $request->input('cagar_budaya');
+            $induk->rawan_bencana     = $request->input('rawan_bencana');
+            $induk->lindung_geologi   = $request->input('lindung_geologi');
+            $induk->hutan_produksi    = $request->input('hutan_produksi');
+            $induk->hutan_rakyat      = $request->input('hutan_rakyat');
+            $induk->pertanian         = $request->input('pertanian');
+            $induk->perikanan         = $request->input('perikanan');
+            $induk->pertambangan      = $request->input('pertambangan');
+            $induk->industri          = $request->input('industri');
+            $induk->pariwisata        = $request->input('pariwisata');
+            $induk->pemukiman         = $request->input('pemukiman');
+            $induk->perkebunan        = $request->input('perkebunan');
+            $induk->pertahanan        = $request->input('pertahanan');
           }
 
           // file
