@@ -30,9 +30,7 @@
                 <tbody>
                 @foreach($induk as $data)
                   <tr>
-                      <td><?php if($data->jenis==1) echo "Peta Administrasi";  ?>
-                          <?php if($data->jenis==2) echo "Peta Pola Ruang";  ?>
-                      </td>
+                      <td>{{$data->jenis}}</td>
                       <td>{{$data->kecamatan}}</td>
                       <td style="text-align:center"> <img src="{{ asset("files/induk")}}/{{$data->path_peta}}" width="150px"> </td>
                       <td>{{$data->keterangan}}</td>

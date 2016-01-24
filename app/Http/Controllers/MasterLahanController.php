@@ -53,7 +53,7 @@ class MasterLahanController extends Controller
         {
           $lahan                    = new Lahan;
 
-          $lahan->jenis             = $request->input('jenis');
+          $lahan->jenis             = 3;
           $lahan->kecamatan         = $request->input('kecamatan');
           $lahan->keterangan        = $request->input('keterangan');
           $lahan->tahun             = $request->input('tahun');
@@ -171,7 +171,6 @@ class MasterLahanController extends Controller
         {
           $lahan                    = Lahan::find($id);
 
-          $lahan->jenis             = $request->input('jenis');
           $lahan->kecamatan         = $request->input('kecamatan');
           $lahan->keterangan        = $request->input('keterangan');
           $lahan->tahun             = $request->input('tahun');

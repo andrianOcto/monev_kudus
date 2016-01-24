@@ -22,16 +22,7 @@
 	            <div class="box-body">
 	            	<form class="form-horizontal" method="post" enctype="multipart/form-data" action="http://localhost:8000/lahan/update/{{$lahan->id}}">
 	            	<?php echo csrf_field(); ?>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Jenis :</label>
-	            			<div class="col-sm-3">
-	            				<select class="form-control select2" id="jenis" name="jenis">
-	            					<option <?php if($lahan->jenis==1) echo "selected=''" ?> value="1">jenis 1</option>
-	            					<option <?php if($lahan->jenis==2) echo "selected=''" ?> value="2">jenis 2</option>
-	            					<option <?php if($lahan->jenis==3) echo "selected=''" ?> value="3">jenis 3</option>
-	            				</select>
-	            			</div>
-	            		</div>
+	            		
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Wilayah :</label>
 	            			<div class="col-sm-3">
