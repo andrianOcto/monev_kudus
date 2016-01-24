@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Kecamatan;
 
 class MonitoringController extends Controller
 {
@@ -16,7 +17,17 @@ class MonitoringController extends Controller
      */
     public function index()
     {
-        return view('monitoring_lahan');
+        $data['kecamatan'] = Kecamatan::all();
+        return view('monitoring_lahan')->with($data);
+    }
+
+    public function updatePage(Request $request)
+    {
+        $idKecamatan        = $request->input('idKecamatan');
+        $data['kecamatan']  = Kecamatan::all();
+        $data['induk']      =
+        return view('monitoring_lahan')->with($data);
+       
     }
 
     /**
