@@ -21,7 +21,10 @@ class MasterLahanController extends Controller
      */
     public function index()
     {
-        $data['lahan'] = Lahan::all();
+        $data['lahan'] = DB::table('lahan')
+                        ->join('kecamatan', 'lahan.kecamatan', '=', 'kecamatan.id')
+                        ->select('lahan.id', 'lahan.tahun', 'lahan.path_peta', 'lahan.jenis', 'lahan.keterangan', 'kecamatan.kecamatan as kecamatan')
+                        ->get();
         return view('master_lahan')->with($data);
     }
 

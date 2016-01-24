@@ -23,7 +23,10 @@ class MasterIndukController extends Controller
      */
     public function index()
     {
-        $data['induk'] = Induk::all();
+        $data['induk'] = DB::table('induk')
+                        ->join('kecamatan', 'induk.kecamatan', '=', 'kecamatan.id')
+                        ->select('induk.id', 'induk.path_peta', 'induk.jenis', 'induk.keterangan', 'kecamatan.kecamatan as kecamatan')
+                        ->get();
         return view('master_data_induk')->with($data);
     }
 
