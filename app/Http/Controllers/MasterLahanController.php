@@ -142,6 +142,15 @@ class MasterLahanController extends Controller
     public function show($id)
     {
         $data['lahan'] = Lahan::find($id);
+        $lahan = Lahan::find($id);
+        $kecamatan = $lahan->kecamatan;
+        $data['kecamatan'] = Kecamatan::find($kecamatan);
+        $data['perijinan']      = DB::table('perijinan')
+            ->join('desa', 'perijinan.desa', '=', 'desa.id')
+            ->join('kecamatan', 'perijinan.kecamatan', '=', 'kecamatan.id')
+            ->select('perijinan.pemanfaatan_ruang', 'perijinan.pemilik', 'desa.desa')
+            ->where('kecamatan.id', '=', $kecamatan)
+            ->get();
         return view('detail_lahan')->with($data);
     }
 

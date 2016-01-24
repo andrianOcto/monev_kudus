@@ -18,7 +18,7 @@
                     <a style="float:right" href="#" class="btn btn-primary btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <h2 style="margin-bottom:20px">Wilayah Kecamatan {{$lahan->kecamatan}}</h2>
+                    <h2 style="margin-bottom:20px">Wilayah Kecamatan {{$kecamatan->kecamatan}}</h2>
                     <img src="{{ asset("files/lahan")}}/{{$lahan->path_peta}}" class="img-dPeta">
                     <table>
                         <tr>
@@ -113,6 +113,34 @@
                         </tr>
                     </table>
                 </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Perijinan Lahan Kecamatan </h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Jenis Pemanfaatan Ruang</th>
+                    <th>Pemilik (Atas Nama)</th>
+                    <th>Desa/Kelurahan</th>
+                  </tr>
+                </thead>
+                @foreach ($perijinan as $item)
+                <tbody>
+                  <tr>
+                      <td>{{$item->pemanfaatan_ruang}}</td>
+                      <td>{{$item->pemilik}}</td>
+                      <td>{{$item->desa}}</td>
+                  </tr>
+                  </tbody>
+                @endforeach
+                </table>
+              </div>
             </div>
         </div>
     </div>
