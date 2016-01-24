@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Kecamatan;
-
+use App\Induk;
+use App\Lahan;
+use App\Perijinan;
 class MonitoringController extends Controller
 {
     /**
@@ -18,16 +20,66 @@ class MonitoringController extends Controller
     public function index()
     {
         $data['kecamatan'] = Kecamatan::all();
+        $i=0;
+        $default = 1;
+        $defaultName = "";
+        foreach ($data['kecamatan'] as $key => $value) {
+            if($i==0){
+                $default     = $value->id;
+                $defaultName = $value->kecamatan;
+            }
+                
+            $i++;
+        }
+
+        $data['perijinan']      = DB::table('perijinan')
+            ->join('desa', 'perijinan.desa', '=', 'desa.id')
+            ->select('perijinan.pemanfaatan_ruang', 'perijinan.pemilik', 'desa.desa')
+            ->get();
+
+        $data['kabupaten']      = Induk::where('kecamatan', '=', 15)
+                                     ->where('jenis', '=', 2)->get();
+        $data['induk']          = Induk::where('kecamatan', '=', $default)
+                                     ->where('jenis', '=', 2)->get();
+        $data['lahan']          = Lahan::where('kecamatan', '=', $default)
+                                     ->where('jenis', '=', 3)->get();
+
+        $data['namaKecamatan']  = $defaultName;
+
         return view('monitoring_lahan')->with($data);
+        //var_dump($default);                 
     }
 
     public function updatePage(Request $request)
     {
+        $data['kecamatan']  = Kecamatan::all(); 
         $idKecamatan        = $request->input('idKecamatan');
-        $data['kecamatan']  = Kecamatan::all();
-        $data['induk']      =
+        $i=0;
+        $defaultName = "";
+        foreach ($data['kecamatan'] as $key => $value) {
+            if($value->id == $idKecamatan){
+                $defaultName = $value->kecamatan;
+                break;
+            }
+        }
+        
+        $data['perijinan']      = DB::table('perijinan')
+            ->join('desa', 'perijinan.desa', '=', 'desa.id')
+            ->select('perijinan.pemanfaatan_ruang', 'perijinan.pemilik', 'desa.desa')
+            ->get();
+
+        $data['namaKecamatan']  = $defaultName;
+
+        $data['kabupaten']      = Induk::where('kecamatan', '=', 15)
+                                     ->where('jenis', '=', 2)->get();
+        $data['induk']      = Induk::where('kecamatan', '=', $idKecamatan)
+                                     ->where('jenis', '=', 2)->get();
+        $data['lahan']      = Lahan::where('kecamatan', '=', $idKecamatan)
+                                     ->where('jenis', '=', 3)->get();
+
+
         return view('monitoring_lahan')->with($data);
-       
+        
     }
 
     /**

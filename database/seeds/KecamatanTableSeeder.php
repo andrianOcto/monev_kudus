@@ -14,6 +14,7 @@ class KecamatanTableSeeder extends Seeder{
 		DB::table('kecamatan')->insert(['kecamatan'=>'Jekulo', 'luas'=> 3.4]);
 		DB::table('kecamatan')->insert(['kecamatan'=>'Dawe', 'luas'=> 3.4]);
 		DB::table('kecamatan')->insert(['kecamatan'=>'Undaan', 'luas'=> 3.4]);
+		DB::table('kecamatan')->insert(['kecamatan'=>'Kabupaten Kudus', 'luas'=> 3.4, 'id'=>15]);
 	}
 }
 
