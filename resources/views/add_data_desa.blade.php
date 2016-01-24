@@ -3,8 +3,8 @@
 @section('main-content')
 
 <section class="content-header">
+    <h1>Data Master Desa</h1>
     <ol class="breadcrumb" id="breadcrumb-dPeta">
-        <h1>Data Master Desa</h1>
         <li><a href="/desa"><i class="fa fa-circle-o"></i> Data Desa</a></li>
         <li class="active">Tambah Desa</li>
     </ol>
@@ -24,7 +24,7 @@
                     <form class="form-horizontal" method="post" action="/desa/add">
                       <div class="form-group">
                         <label class="col-sm-3 control-label">Kecamatan :</label>
-                        <div class="col-sm-7">
+                        <div class="col-sm-3">
                           <select class="form-control select2" id="kecamatan" name="kecamatan">
                             @foreach($kecamatan as $data)
                             <option value="{{$data->id}}">{{$data->kecamatan}}</option>

@@ -25,7 +25,7 @@
                 </div>
             </div><!-- /.box-header -->
             <div class="box-body" id="scrollx" style="margin-top:20px">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-lg-6 col-xs-6">
                         <center>
                             <img src="" width="300px">
@@ -38,8 +38,8 @@
                             <h4>Peta Pola Ruang Kecamatan Jati</h4>
                         </center>
                     </div>
-                </div>
-                &nbsp;
+                </div> 
+                &nbsp; -->
                 <table class="tCompare">
                     &nbsp;
                     <tr style="text-align:center">
@@ -196,6 +196,32 @@
                 </table>
             </div>
           </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Perijinan Lahan Kecamatan ... </h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Jenis Pemanfaatan Ruang</th>
+                    <th>Pemilik (Atas Nama)</th>
+                    <th>Desa/Kelurahan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>Pembangunan Kantor dan Tempat Usaha Pengumpulan Barang Bekas</td>
+                      <td>CV. Putra Jaya</td>
+                      <td>Tanjungkarang</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
         </div>
     </div>
 </section>

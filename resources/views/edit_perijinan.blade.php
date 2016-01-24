@@ -3,10 +3,10 @@
 @section('main-content')
 
 <section class="content-header">
-    <h1>Data Master Desa</h1>
+    <h1>Data Perijinan Lahan</h1>
     <ol class="breadcrumb" id="breadcrumb-dPeta">
-        <li><a href="/desa"><i class="fa fa-circle-o"></i> Data Desa</a></li>
-        <li class="active">Edit Desa</li>
+        <li><a href="/perijinan"><i class="fa fa-circle-o"></i> Data Perijinan</a></li>
+        <li class="active">Tambah Perijinan</li>
     </ol>
 </section>
 
@@ -21,34 +21,39 @@
                 </div><!-- /.box-header -->
                 
                 <div class="box-body">
-                    <form class="form-horizontal" method="post" action="/desa/update/{{$desa->id}}">
+                    <form class="form-horizontal" method="post" action="/desa/add">
                       <div class="form-group">
                         <label class="col-sm-3 control-label">Kecamatan :</label>
                         <div class="col-sm-3">
                           <select class="form-control select2" id="kecamatan" name="kecamatan">
-                            @foreach($kecamatan as $data)
-                            <option <?php if ($desa->kecamatan==$data->id) echo "selected";  ?> value="{{$data->id}}">{{$data->kecamatan}}</option>
-                            @endforeach
+                            <option value="">Kota</option>
                           </select>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-sm-3 control-label">Desa/Kelurahan :</label>
-                        <div class="col-sm-7">
-                          <input type="text" required id="desa" name="desa" value="{{$desa->desa}}">
+                        <div class="col-sm-3">
+                          <select class="form-control select2" id="desa" name="desa">
+                            <option value="">Purwosari</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-sm-3 control-label">Luas Area :</label>
-                        <div class="col-sm-4">
-                          <input type="number" required placeholder="luas dalam ha" id="luas" name="luas" value="{{$desa->luas}}">
+                        <label class="col-sm-3 control-label">Jenis Pemanfaatan Ruang :</label>
+                        <div class="col-sm-7">
+                          <textarea class="form-control" rows="3" required name="pemanfaatan_ruang" value=""></textarea>
                         </div>
                       </div>
-                      <?php echo csrf_field(); ?>
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">Pemilik (Atas Nama) :</label>
+                        <div class="col-sm-7">
+                          <textarea class="form-control" rows="1" required name="pemilik" style="width:100%" value=""></textarea>
+                        </div>
+                      </div>
                       <div class="form-group">
                         <label class="col-sm-3 control-label"></label>
                         <div class="col-sm-4">
-                          <button type="submit" class="btn btn-primary btn-flat">Simpan</button>
+                          <button type="submit" class="btn btn-primary btn-flat">Tambah</button>
                         </div>
                       </div>
                       
