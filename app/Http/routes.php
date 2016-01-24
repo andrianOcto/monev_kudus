@@ -17,7 +17,6 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('/','DashboardController@index')->middleware(['auth']);
 
 // route master kecamatan
-Route::get('/monitoring','MonitoringController@index')->middleware(['auth']);
 Route::get('/kecamatan','KecamatanController@index')->middleware(['auth']);
 Route::get('/tambahkecamatan','KecamatanController@create')->middleware(['auth']);
 Route::post('/kecamatan/add','KecamatanController@store')->middleware(['auth']);
@@ -59,7 +58,13 @@ Route::post('/users/add','UserController@store')->middleware(['auth']);
 Route::post('/users/update/{id}','UserController@update')->middleware(['auth']);
 Route::post('/users/delete/','UserController@destroy')->middleware(['auth']);
 
+
+//route monitoring
+Route::get('/monitoring','MonitoringController@index')->middleware(['auth']);
+Route::post('/monitoring','MonitoringController@updatePage')->middleware(['auth']);
+
 // route master perijinan
 Route::get('/perijinan','PerijinanController@index');
 Route::get('/tambahperijinan','PerijinanController@create');
 Route::get('/editperijinan','PerijinanController@edit');
+
