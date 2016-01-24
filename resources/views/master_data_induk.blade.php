@@ -21,7 +21,7 @@
                 <thead>
                   <tr>
                     <th>Jenis Peta</th>
-                    <th>Wilayah Kecamatan</th>
+                    <th>Wilayah</th>
                     <th>Gambaran</th>
                     <th>Keterangan</th>
                     <th>Action</th>
@@ -58,7 +58,7 @@
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        <th>Wilayah Kecamatan</th>
+                        <th>Wilayah</th>
                         <th>Tahun</th>
                         <th>Gambaran</th>
                         <th>Keterangan</th>

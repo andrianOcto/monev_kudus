@@ -11,6 +11,8 @@ use App\Perijinan;
 use App\Kecamatan;
 use DB;
 
+//use Maatwebsite\Excel\Facades\Excel;
+
 class PerijinanController extends Controller
 {
     /**
@@ -126,5 +128,9 @@ class PerijinanController extends Controller
         $id = $request->input("id_delete");
         Perijinan::destroy($id);
         return redirect('/perijinan');
+    }
+    
+    public function export(){
+        
     }
 }

@@ -21,24 +21,28 @@ class CreateIndukTable extends Migration
             $table->integer('tahun');
             
             // data luasan
-            $table->float('kcp2b')->nullable();
-            $table->float('cagar_budaya')->nullable();
-            $table->float('lindung_spiritual')->nullable();
-            $table->float('hutan_rakyat')->nullable();
+            //kawasan lindung
             $table->float('hutan_lindung')->nullable();
-            $table->float('industri')->nullable();
-            $table->float('pertanian_tanaman')->nullable();
-            $table->float('hutan_produksi')->nullable();
-            $table->float('hutan_produksi_terbatas')->nullable();
-            $table->float('pariwisata')->nullable();
-            $table->float('pertambangan')->nullable();
-            $table->float('tanaman_pangan')->nullable();
-            $table->float('pemukiman_pedesaan')->nullable();
-            $table->float('pemukiman_perkotaan')->nullable();
-            $table->float('tpa')->nullable();
-            $table->float('sekitar_waduk')->nullable();
-            $table->float('sekitar_mataair')->nullable();
+            $table->float('kawasan_bawahan')->nullable();
             $table->float('sempadan_sungai')->nullable();
+            $table->float('sekitar_danauwaduk')->nullable();
+            $table->float('sekitar_mataair')->nullable();
+            $table->float('lindung_spiritual')->nullable();
+            $table->float('rth')->nullable();
+            $table->float('cagar_budaya')->nullable();
+            $table->float('rawan_bencana')->nullable();
+            $table->float('lindung_geologi')->nullable();
+            //kawasan budidaya
+            $table->float('hutan_produksi')->nullable();
+            $table->float('hutan_rakyat')->nullable();
+            $table->float('pertanian')->nullable();
+            $table->float('perikanan')->nullable();
+            $table->float('pertambangan')->nullable();
+            $table->float('industri')->nullable();
+            $table->float('pariwisata')->nullable();
+            $table->float('pemukiman')->nullable();
+            $table->float('perkebunan')->nullable();
+            $table->float('pertahanan')->nullable();
 
             $table->timestamps();
         });
@@ -51,6 +55,6 @@ class CreateIndukTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('induk');
     }
 }
