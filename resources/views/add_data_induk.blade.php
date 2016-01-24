@@ -33,7 +33,7 @@
                             <?php echo csrf_field(); ?>
                             <input type="hidden" name="jenis" value="1">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Wilayah kecamatan :</label>
+                                    <label class="col-sm-3 control-label">Wilayah :</label>
                                     <div class="col-sm-3">
                                         <select class="form-control select2" id="kecamatan" name="kecamatan">
                                             @foreach($kecamatan as $data)
@@ -80,7 +80,7 @@
                             <?php echo csrf_field(); ?>
                             <input type="hidden" name="jenis" value="2">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Wilayah kecamatan :</label>
+                                    <label class="col-sm-3 control-label">Wilayah :</label>
                                     <div class="col-sm-3">
                                         <select class="form-control select2" id="kecamatan" name="kecamatan">
                                             @foreach($kecamatan as $data)

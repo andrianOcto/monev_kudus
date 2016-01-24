@@ -32,7 +32,7 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                   <tr>
-                    <th>Wilayah Kecamatan</th>
+                    <th>Wilayah</th>
                     <th>Tahun</th>
                     <th>Gambaran</th>
                     <th>Keterangan</th>

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+//use Maatwebsite\Excel\Facades\Excel;
+
 class PerijinanController extends Controller
 {
     /**
@@ -83,5 +85,9 @@ class PerijinanController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function export(){
+        
     }
 }

@@ -14,6 +14,8 @@ use App\Kecamatan;
 use DB;
 use File;
 
+use Maatwebsite\Excel\Facades\Excel;
+
 class MasterIndukController extends Controller
 {
     /**
@@ -23,7 +25,12 @@ class MasterIndukController extends Controller
      */
     public function index()
     {
+        // $data['induk'] = DB::table('induk')
+        //                   ->join('kecamatan', 'induk.kecamatan', '=', 'kecamatan.id')
+        //                   ->select('induk.jenis', 'kecamatan.kecamatan as kec', 'induk.path_peta', 'induk.keterangan')
+        //                   ->get();
         $data['induk'] = Induk::all();
+        $data['kecamatan'] = Kecamatan::all();
         return view('master_data_induk')->with($data);
     }
 
@@ -212,5 +219,9 @@ class MasterIndukController extends Controller
 
         Induk::destroy($id);
         return redirect('/masterinduk');
+    }
+    
+    public function export(){
+        
     }
 }

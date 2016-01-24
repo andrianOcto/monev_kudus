@@ -21,24 +21,28 @@ class CreateLahanTable extends Migration
             $table->integer('tahun');
             
             // data luasan
-            $table->float('kcp2b');
-            $table->float('cagar_budaya');
-            $table->float('lindung_spiritual');
-            $table->float('hutan_rakyat');
+            //kawasan lindung
             $table->float('hutan_lindung');
-            $table->float('industri');
-            $table->float('pertanian_tanaman');
-            $table->float('hutan_produksi');
-            $table->float('hutan_produksi_terbatas');
-            $table->float('pariwisata');
-            $table->float('pertambangan');
-            $table->float('tanaman_pangan');
-            $table->float('pemukiman_pedesaan');
-            $table->float('pemukiman_perkotaan');
-            $table->float('tpa');
-            $table->float('sekitar_waduk');
-            $table->float('sekitar_mataair');
+            $table->float('kawasan_bawahan');
             $table->float('sempadan_sungai');
+            $table->float('sekitar_danauwaduk');
+            $table->float('sekitar_mataair');
+            $table->float('lindung_spiritual');
+            $table->float('rth');
+            $table->float('cagar_budaya');
+            $table->float('rawan_bencana');
+            $table->float('lindung_geologi');
+            //kawasan budidaya
+            $table->float('hutan_produksi');
+            $table->float('hutan_rakyat');
+            $table->float('pertanian');
+            $table->float('perikanan');
+            $table->float('pertambangan');
+            $table->float('industri');
+            $table->float('pariwisata');
+            $table->float('pemukiman');
+            $table->float('perkebunan');
+            $table->float('pertahanan');
 
             $table->timestamps();
         });

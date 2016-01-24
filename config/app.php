@@ -147,7 +147,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         //pingpong-module
         'Pingpong\Modules\ModulesServiceProvider',
-
+        //export excel
+        'Maatwebsite\Excel\ExcelServiceProvider',
 
     ],
 
@@ -198,6 +199,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Module'    => 'Pingpong\Modules\Facades\Module',
+        'Excel'     => 'Maatwebsite\Excel\Facades\Excel',
 
     ],
 
