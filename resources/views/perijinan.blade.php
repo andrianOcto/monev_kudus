@@ -26,18 +26,20 @@
                 	</tr>
                 </thead>
                 <tbody>
+                @foreach($perijinan as $data)
                     <tr>
-						<td>1</td>
-						<td>Pembangunan Kantor dan Tempat Usaha Pengumpulan Barang Bekas</td>
-						<td>CV. Putra Jaya</td>
-						<td>Tanjungkarang</td>
-						<td>Jati</td>
-						<td style="text-align:center">
-						  <a href="/editperijinan" class="btn btn-warning btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
-						  &nbsp;
-						  <a href="#modalDelete" data-toggle="modal" data-seq="" data-target="#modalDelete" class="hapus btn btn-danger btn-flat"><i class="fa fa-trash-o"></i> hapus</a>
-						</td>
+          						<td>{{$data->id}}</td>
+          						<td>{{$data->pemanfaatan_ruang}}</td>
+          						<td>{{$data->pemilik}}</td>
+          						<td>{{$data->desa}}</td>
+          						<td>{{$data->kecamatan}}</td>
+          						<td style="text-align:center">
+          						  <a href="/editperijinan/{{$data->id}}" class="btn btn-warning btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
+          						  &nbsp;
+          						  <a href="#modalDelete" data-toggle="modal" data-seq="{{$data->id}}" data-target="#modalDelete" class="hapus btn btn-danger btn-flat"><i class="fa fa-trash-o"></i> hapus</a>
+          						</td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
               </div>
@@ -59,7 +61,8 @@
       <h4> Apakah Anda Yakin Akan Menghapus Data? </h4>
     </div>
     <div class="modal-footer">
-      <form action="#" method="post">
+      <form action="/perijinan/delete" method="post">
+      <?php echo csrf_field(); ?>
         <input  type="hidden" name="id_delete" class="id_delete">
         <button type="submit" class="btn btn-danger btn-flat">Delete</button>
       </form>

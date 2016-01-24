@@ -31,6 +31,7 @@ Route::post('/desa/add','DesaController@store')->middleware(['auth']);
 Route::post('/desa/delete','DesaController@delete')->middleware(['auth']);
 Route::post('/desa/update/{id}','DesaController@update')->middleware(['auth']);
 Route::get('/editdesa/{id}','DesaController@edit')->middleware(['auth']);
+Route::get('/desa/{id}', 'DesaController@getDesa');
 
 // route master lahan
 Route::get('/detaillahan/{id}','MasterLahanController@show')->middleware(['auth']);
@@ -40,6 +41,7 @@ Route::get('/editlahan/{id}','MasterLahanController@edit')->middleware(['auth'])
 Route::post('/lahan/add','MasterLahanController@store')->middleware(['auth']);
 Route::post('/lahan/update/{id}','MasterLahanController@update')->middleware(['auth']);
 Route::post('/lahan/delete/','MasterLahanController@destroy')->middleware(['auth']);
+Route::get('/lahan/export','MasterLahanController@export');
 
 // route master induk
 Route::get('/detailinduk/{id}','MasterIndukController@show')->middleware(['auth']);
@@ -64,7 +66,10 @@ Route::get('/monitoring','MonitoringController@index')->middleware(['auth']);
 Route::post('/monitoring','MonitoringController@updatePage')->middleware(['auth']);
 
 // route master perijinan
-Route::get('/perijinan','PerijinanController@index');
-Route::get('/tambahperijinan','PerijinanController@create');
-Route::get('/editperijinan','PerijinanController@edit');
+Route::get('/perijinan','PerijinanController@index')->middleware(['auth']);
+Route::get('/tambahperijinan','PerijinanController@create')->middleware(['auth']);
+Route::get('/editperijinan/{id}','PerijinanController@edit')->middleware(['auth']);
+Route::post('/perijinan/add','PerijinanController@store')->middleware(['auth']);
+Route::post('/perijinan/update/{id}','PerijinanController@update')->middleware(['auth']);
+Route::post('/perijinan/delete/','PerijinanController@destroy')->middleware(['auth']);
 

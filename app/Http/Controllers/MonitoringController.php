@@ -80,6 +80,7 @@ class MonitoringController extends Controller
 
         return view('monitoring_lahan')->with($data);
         
+
     }
 
     /**

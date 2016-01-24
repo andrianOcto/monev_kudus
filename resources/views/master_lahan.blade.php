@@ -4,7 +4,7 @@
 
 <section class="content-header">
     <h1>Data Master Tahunan Pemetaan Lahan</h1>
-</section>
+
           @if (session('errMessage') != null)
           <!-- Error message kalau kode sudah pernah di masukkan -->
           <div class="alert alert-danger alert-dismissable ">
@@ -21,12 +21,15 @@
             <h4><i class="icon fa fa-check"></i>{{session('successMessage')}} </h4>
           </div>
           @endif
+</section>
+
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="/tambahlahan" class="btn btn-primary btn-flat btn-lg">+ Tambah Data</a>
+                <a href="/tambahlahan" class="btn btn-primary btn-flat btn-lg">+ Tambah Data</a>
+                <a href="/lahan/export" class="btn btn-success btn-flat btn-lg" style="float:right">Export Excel</a>
             </div><!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
