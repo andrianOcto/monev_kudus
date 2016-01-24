@@ -44,18 +44,27 @@
                     &nbsp;
                     <tr style="text-align:center">
                         <td></td>
-                        <td><img class="imgCompare" src="" width="200px"></td>
-                        <td><img class="imgCompare" src="" width="200px"></td>
-                        <td><img class="imgCompare" src="" width="200px"></td>
-                        <td><img class="imgCompare" src="" width="200px"></td>
+                        @foreach ($kabupaten as $item)
+                            <td><img class="imgCompare" src="{{$item->path_peta}}" width="200px"></td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                            <td><img class="imgCompare" src="{{$item->path_peta}}" width="200px"></td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                            <td><img class="imgCompare" src="{{$item->path_peta}}" width="200px"></td>
+                        @endforeach
                     </tr>
                     <tr style="text-align:center">
                         <td></td>
                         <td style="line-height:1.5"><strong>Pola Ruang <br/> Kabupaten Kudus <br/></strong></td>
-                        <td style="line-height:1.5"><strong>Pola Ruang <br/> Wilayah Jati</strong></td>
+                        @foreach ($induk as $item)
+                        <td style="line-height:1.5"><strong>Pola Ruang <br/> Wilayah {{$namaKecamatan}}</strong></td>
+                        @endforeach
                         <!-- tahun -->
-                        <td style="line-height:1.5"><strong>Pola Ruang <br/> Wilayah Jati <br/> 2009 </strong></td>
-                        <td style="line-height:1.5"><strong>Pola Ruang <br/> Wilayah Jati <br/> 2014 </strong></td>
+                        @foreach ($lahan as $item)
+                            <td style="line-height:1.5"><strong>Pola Ruang <br/> Wilayah {{$namaKecamatan}}<<br/> {{$item->tahun}} </strong></td>
+                        @endforeach
+                        
                     </tr>
                     <tr style="background-color:#ECF0F5">
                         <td style="text-align:right; width:20%">Kawasan Lindung :</td>
@@ -66,73 +75,123 @@
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Hutan Lindung</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->hutan_lindung}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->hutan_lindung}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->hutan_lindung}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%; line-height:1.5"><strong>Kaw. Yang Memberikan Perlindungan Terhadap Kawasan Bawahannya</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->kawasan_bawahan}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->kawasan_bawahan}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->kawasan_bawahan}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Sempadan Sungai</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->sempadan_sungai}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->sempadan_sungai}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->sempadan_sungai}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20% line-height:1.5"><strong>Kaw. Sekitar Danau atau Waduk</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->sekitar_danauwaduk}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->sekitar_danauwaduk}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->sekitar_danauwaduk}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Sekitar Mata Air</strong></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->sekitar_mataair}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->sekitar_mataair}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->sekitar_mataair}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%; line-height:1.5"><strong>Kaw. Lindung Spiritual dan Kearifan Lokal</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->lindung_spiritual}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->lindung_spiritual}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->lindung_spiritual}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Ruang Terbuka Hijau</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->rth}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->rth}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->rth}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Cagar Budaya</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->cagar_budaya}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->cagar_budaya}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->cagar_budaya}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Rawan Bencana Alam</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->rawan_bencana}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->rawan_bencana}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->rawan_bencana}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Lindung Geologi</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->lindung_geologi}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->lindung_geologi}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->lindung_geologi}} ha</td>
+                        @endforeach
                     </tr>
                     <tr style="background-color:#ECF0F5">
                         <td style="text-align:right; width:20%">Kawasan Budidaya:</td>
@@ -143,76 +202,127 @@
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Hutan Produksi</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->hutan_produksi}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->hutan_produksi}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->hutan_produksi}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Hutan Rakyat</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->hutan_rakyat}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->hutan_rakyat}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->hutan_rakyat}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Pertanian</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->pertanian}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->pertanian}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->pertanian}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Perikanan</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->perikanan}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->perikanan}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->perikanan}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Pertambangan</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->pertambangan}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->pertambangan}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->pertambangan}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Industri</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->industri}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->industri}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->industri}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Pariwisata</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->pariwisata}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->pariwisata}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->pariwisata}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Pemukiman</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->pemukiman}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->pemukiman}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->pemukiman}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Perkebunan</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->perkebunan}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->perkebunan}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->perkebunan}} ha</td>
+                        @endforeach
                     </tr>
                     <tr>
                         <td style="text-align:right; width:20%"><strong>Kaw. Pertahanan</strong></td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
-                        <td style="text-align:center">0,7 ha</td>
+                        @foreach ($kabupaten as $item)
+                           <td style="text-align:center">{{$item->pertahanan}} ha</td>
+                        @endforeach
+                        @foreach ($induk as $item)
+                           <td style="text-align:center">{{$item->pertahanan}} ha</td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                           <td style="text-align:center">{{$item->pertahanan}} ha</td>
+                        @endforeach
                     </tr>
                 </table>
             </div>
+
           </div>
         </div>
 
@@ -230,13 +340,15 @@
                     <th>Desa/Kelurahan</th>
                   </tr>
                 </thead>
+                @foreach ($perijinan as $item)
                 <tbody>
                   <tr>
-                      <td>Pembangunan Kantor dan Tempat Usaha Pengumpulan Barang Bekas</td>
-                      <td>CV. Putra Jaya</td>
-                      <td>Tanjungkarang</td>
+                      <td>{{$item->pemanfaatan_ruang}}</td>
+                      <td>{{$item->pemilik}}</td>
+                      <td>{{$item->desa}}</td>
                   </tr>
                   </tbody>
+                @endforeach
                 </table>
               </div>
             </div>
