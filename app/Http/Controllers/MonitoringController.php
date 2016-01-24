@@ -23,10 +23,12 @@ class MonitoringController extends Controller
 
     public function updatePage(Request $request)
     {
-        $idKecamatan        = $request->input('idKecamatan');
-        $data['kecamatan']  = Kecamatan::all();
-        $data['induk']      =
-        return view('monitoring_lahan')->with($data);
+//        $idKecamatan        = $request->input('idKecamatan');
+//        $data['kecamatan']  = Kecamatan::all();
+//        $data['induk']      =
+//        return view('monitoring_lahan')->with($data);
+        
+        return view('monitoring_lahan');
        
     }
 

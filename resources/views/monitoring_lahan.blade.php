@@ -12,21 +12,9 @@
           <div class="box">
             <div class="box-header">
                 <div class="form-inline">
-                    <label>Wilayah : </label>
-                    <select class="form-control">
-                        <option>Kaliwungu</option>
-                        <option>Kota</option>
-                        <option>Jati</option>
-                        <option>Undaan</option>
-                        <option>Mejobo</option>
-                        <option>Jekulo</option>
-                        <option>Bae</option>
-                        <option>Gebog</option>
-                        <option>Dawe</option>
-
                     <form id="monitor" action="" method="post">
                     {{ csrf_field() }}
-                    <label>Wilayah Kecamatan : </label>
+                    <label>Wilayah : </label>
                     <select class="form-control" id="idKecamatan" name="idKecamatan">
                         @foreach ($kecamatan as $item)
                             <option value="{{$item->id}}">{{$item->kecamatan}}</option>

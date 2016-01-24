@@ -55,113 +55,125 @@
 	            			</div>
 	            		</div>
 	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">KCP2B :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="kcp2b" name="kcp2b" value="{{$lahan->kcp2b}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Kawasan Cagar Budaya :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="cagar-budaya" name="cagar_budaya" value="{{$lahan->cagar_budaya}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Kawasan Lindung Spiritual :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="lindung-spiritual" name="lindung_spiritual" value="{{$lahan->lindung_spiritual}}" > 
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Kawasan Hutan Lindung :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="hutan-lindung" name="hutan_lindung" value="{{$lahan->hutan_lindung}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Kawasan Hutan Rakyat :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="hutan-rakyat" name="hutan_rakyat" value="{{$lahan->hutan_rakyat}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Kawasan Industri :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="industri" name="industri" value="{{$lahan->industri}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Kawasan Pertanian Tanaman :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="pertanian-tanaman" name="pertanian_tanaman" value="{{$lahan->pertanian_tanaman}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Kawasan Hutan Produksi :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="hutan-produksi" name="hutan_produksi" value="{{$lahan->hutan_produksi}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Kawasan Hutan Produksi Terbatas :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="hutan-produksi-terbatas" name="hutan_produksi_terbatas" value="{{$lahan->hutan_produksi_terbatas}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Kawasan Pariwisata :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="pariwisata" name="pariwisata" value="{{$lahan->pariwisata}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Kawasan Pertambangan :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="pertambangan" name="pertambangan" value="{{$lahan->pertambangan}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Kawasan Tanaman Pangan :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="tanaman-pangan" name="tanaman_pangan" value="{{$lahan->tanaman_pangan}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Pemukiman Pedesaan :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="pedesaan" name="pemukiman_pedesaan" value="{{$lahan->pemukiman_pedesaan}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Pemukiman Perkotaan :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="perkotaan" name="pemukiman_perkotaan" value="{{$lahan->pemukiman_perkotaan}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">TPA :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="tpa" name="tpa" value="{{$lahan->tpa}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Sekitar Waduk :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="waduk" name="sekitar_waduk" value="{{$lahan->sekitar_waduk}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Sekitar Mata Air :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="mata-air" name="sekitar_mataair" value="{{$lahan->sekitar_mataair}}">
-	            			</div>
-	            		</div>
-	            		<div class="form-group">
-	            			<label class="col-sm-3 control-label">Sempadan Sungai :</label>
-	            			<div class="col-sm-2">
-	            				<input type="number" class="form-control" placeholder="luas dalam ha" id="sempadan-sungai" name="sempadan_sungai" value="{{$lahan->sempadan_sungai}}">
-	            			</div>
-	            		</div>
+                            <label class="col-sm-3 control-label">Kawasan Hutan Lindung :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" id="hutan_lindung" name="hutan_lindung" value="{{$lahan->hutan_lindung}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Yang Memberikan Perlindungan Terhadap Kawasan Bawahannya :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" id="kawasan_bawahan" name="kawasan_bawahan" value="{{$lahan->kawasan_bawahan}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Sempadan Sungai :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" id="sempadan_sungai" name="sempadan_sungai" value="{{$lahan->sempadan_sungai}}"> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Sekitar Danau atau Waduk :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="sekitar_danauwaduk" value="{{$lahan->sekitar_danauwaduk}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Sekitar Mata Air :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="sekitar_mataair" value="{{$lahan->sekitar_mataair}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Lindung dan Kearifan Lokal Lainnya :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="lindung_spiritual" value="{{$lahan->lindung_spiritual}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Ruang Terbuka Hijau :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="rth" value="{{$lahan->rth}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Cagar Budaya :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="cagar_budaya" value="{{$lahan->cagar_budaya}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Rawan Bencana Alam :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="rawan_bencana" value="{{$lahan->rawan_bencana}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Lindung Geologi :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="lindung_geologi" value="{{$lahan->lindung_geologi}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Hutan Produksi :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="hutan_produksi" value="{{$lahan->hutan_produksi}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Hutan Rakyat :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="hutan_rakyat" value="{{$lahan->hutan_rakyat}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Pertanian :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="pertanian" value="{{$lahan->pertanian}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Perikanan :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="perikanan" value="{{$lahan->perikanan}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Pertambangan :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="pertambangan" value="{{$lahan->pertambangan}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Industri :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="industri" value="{{$lahan->industri}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Pariwisata :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="pariwisata" value="{{$lahan->pariwisata}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Pemukiman :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="pemukiman" value="{{$lahan->pemukiman}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Perkebunan :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="perkebunan" value="{{$lahan->perkebunan}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kawasan Pertahanan :</label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" placeholder="luas dalam ha" name="pertahanan" value="{{$lahan->pertahanan}}">
+                            </div>
+                        </div>
 	            		<div class="form-group">
 	            			<label class="col-sm-3 control-label">Keterangan :</label>
 	            			<div class="col-sm-6">

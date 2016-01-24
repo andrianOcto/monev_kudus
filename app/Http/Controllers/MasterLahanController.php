@@ -213,7 +213,7 @@ class MasterLahanController extends Controller
     public function export(){
         $query = DB::table('lahan')
                     -> join('kecamatan', 'lahan.kecamatan', '=', 'kecamatan.kecamatan')
-                    -> select ('kecamatan.kecamatan as wilayah', 'lahan.tahun', 'lahan.hutan_lindung', 'lahan.kawasan_bawahan', 'lahan.sempadan_sungai', 'lahan.sekitar_danauwaduk', 'lahan.sekitar_mataair', 'lahan.lindung_spiritual', 'lahan.rth', 'lahan.cagar_budaya', 'lahan.rawan_bencana', 'lahan.lindung_geologi', 'lahan.hutan_produksi', 'lahan.hutan_rakyat', 'lahan.pertanian', 'lahan.perikanan', 'lahan.pertambangan', 'lahan.industri', 'lahan.pariwisata', 'lahan.pemukiman', 'lahan.perkebunan', 'lahan.pertahanan')
+                    -> select ('kecamatan.kecamatan as wilayah', 'lahan.tahun', 'lahan.hutan_lindung', 'lahan.kawasan_bawahan', 'lahan.sempadan_sungai', 'lahan.sekitar_danauwaduk', 'lahan.sekitar_mataair', 'lahan.lindung_spiritual', 'lahan.rth', 'lahan.cagar_budaya', 'lahan.rawan_bencana', 'lahan.lindung_geologi', 'lahan.hutan_produksi', 'lahan.hutan_rakyat', 'lahan.pertanian', 'lahan.perikanan', 'lahan.pertambangan', 'lahan.industri', 'lahan.pariwisata', 'lahan.pemukiman', 'lahan.perkebunan', 'lahan.pertahanan', 'lahan.keterangan')
                     -> get();
         
         $i=0;
@@ -239,6 +239,7 @@ class MasterLahanController extends Controller
             $result['pariwisata'] = $data1->pariwisata;
             $result['pemukiman'] = $data1->pemukiman;
             $result['pertahanan'] = $data1->pertahanan;
+            $result['keterangan'] = $data1->keterangan;
             
             $datatabel[$i] = $result;
             $i++;
@@ -250,7 +251,7 @@ class MasterLahanController extends Controller
             array(''),
             //header
             array('Wilayah', 'Tahun', 'Luasan Area'),
-            array('', '', 'Kawasan Hutan Lindung', 'Kawasan Yang Memberikan Perlindungan Terhadap Kawasan Bawahannya', 'Sempadan Sungai', 'Kawasan Sekitar Danau atau Waduk', 'Kawasan Sekitar Mata Air', 'Kawasan Lindung Spiritual dan Kearifan Lokal', 'Kawasan Ruang Terbuka Hijau', 'Kawasan Cagar Budaya', 'Kawasan Rawan Bencana Alam', 'Kawasan Lindung Geologi', 'Kawasan Peruntukan Hutan Produksi', 'Kawasan Peruntukan Hutan Rakyat', 'Kawasan Peruntukan Perkebunan', 'Kawasan Peruntukan Pertanian', 'Kawasan Peruntukan Pariwisata', 'Kawasan Peruntukan Pemukimam', 'Kawasan Peruntukan Pertahanan')
+            array('', '', 'Kawasan Hutan Lindung', 'Kawasan Yang Memberikan Perlindungan Terhadap Kawasan Bawahannya', 'Sempadan Sungai', 'Kawasan Sekitar Danau atau Waduk', 'Kawasan Sekitar Mata Air', 'Kawasan Lindung Spiritual dan Kearifan Lokal', 'Kawasan Ruang Terbuka Hijau', 'Kawasan Cagar Budaya', 'Kawasan Rawan Bencana Alam', 'Kawasan Lindung Geologi', 'Kawasan Peruntukan Hutan Produksi', 'Kawasan Peruntukan Hutan Rakyat', 'Kawasan Peruntukan Perkebunan', 'Kawasan Peruntukan Pertanian', 'Kawasan Peruntukan Pariwisata', 'Kawasan Peruntukan Pemukimam', 'Kawasan Peruntukan Pertahanan', 'Keterangan')
         );
         
         $i=0;
@@ -270,8 +271,8 @@ class MasterLahanController extends Controller
                 
                 //cells manupulation
                 
-                $sheet->mergeCells('A1:S1');
-                $sheet->cells('A1:S1', function($cells){
+                $sheet->mergeCells('A1:T1');
+                $sheet->cells('A1:T1', function($cells){
                     $cells->setFontSize(14);
                     $cells->setFontWeight('bold');
                     $cells->setAlignment('center');
@@ -292,7 +293,12 @@ class MasterLahanController extends Controller
                     $cells->setValignment('middle');
                 });
                 
-                $sheet->cells('A3:S4', function($cells){
+                $sheet->mergeCells('T3:T4');
+                $sheet->cells('T3:T4', function($cells){
+                    $cells->setValignment('middle');
+                });
+                
+                $sheet->cells('A3:T4', function($cells){
                     $cells->setAlignment('center');
                     $cells->setFontWeight('bold');
                 });

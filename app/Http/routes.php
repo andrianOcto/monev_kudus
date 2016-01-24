@@ -40,6 +40,7 @@ Route::get('/editlahan/{id}','MasterLahanController@edit')->middleware(['auth'])
 Route::post('/lahan/add','MasterLahanController@store')->middleware(['auth']);
 Route::post('/lahan/update/{id}','MasterLahanController@update')->middleware(['auth']);
 Route::post('/lahan/delete/','MasterLahanController@destroy')->middleware(['auth']);
+Route::get('/lahan/export','MasterLahanController@export');
 
 // route master induk
 Route::get('/detailinduk/{id}','MasterIndukController@show')->middleware(['auth']);
