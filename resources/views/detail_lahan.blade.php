@@ -18,7 +18,7 @@
                     <a style="float:right" href="/editlahan/{{$lahan->id}}" class="btn btn-primary btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <h2 style="margin-bottom:20px">Wilayah Kecamatan {{$lahan->kecamatan}}</h2>
+                    <h2 style="margin-bottom:20px">Wilayah Kecamatan {{$kecamatan->kecamatan}}</h2>
                     <img src="{{ asset("files/lahan")}}/{{$lahan->path_peta}}" class="img-dPeta">
                     <table>
                         <tr>
@@ -99,37 +99,37 @@
                         <tr>
                             <td style="width:30%">Kawasan Industri</td>
                             <td style="width:5%">:</td>
-                            <td style="width:65%">{{$induk->industri}} ha</td>
+                            <td style="width:65%">{{$lahan->industri}} ha</td>
                         </tr>
                         <tr>
                             <td style="width:30%">Kawasan Pariwisata</td>
                             <td style="width:5%">:</td>
-                            <td style="width:65%">{{$induk->pariwisata}} ha</td>
+                            <td style="width:65%">{{$lahan->pariwisata}} ha</td>
                         </tr>
                         <tr>
                             <td style="width:30%">Kawasan Pemukiman</td>
                             <td style="width:5%">:</td>
-                            <td style="width:65%">{{$induk->pemukiman}} ha</td>
+                            <td style="width:65%">{{$lahan->pemukiman}} ha</td>
                         </tr>
                         <tr>
                             <td style="width:30%">Kawasan Perkebunan</td>
                             <td style="width:5%">:</td>
-                            <td style="width:65%">{{$induk->perkebunan}} ha</td>
+                            <td style="width:65%">{{$lahan->perkebunan}} ha</td>
                         </tr>
                         <tr>
                             <td style="width:30%">Kawasan Pertahanan</td>
                             <td style="width:5%">:</td>
-                            <td style="width:65%">{{$induk->pertahanan}} ha</td>
+                            <td style="width:65%">{{$lahan->pertahanan}} ha</td>
                         </tr>
                     </table>
                 </div>
             </div>
         </div>
-        
+
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Perijinan Lahan Kecamatan ... </h3>
+              <h3 class="box-title">Perijinan Lahan Kecamatan </h3>
             </div><!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
@@ -140,13 +140,15 @@
                     <th>Desa/Kelurahan</th>
                   </tr>
                 </thead>
+                @foreach ($perijinan as $item)
                 <tbody>
                   <tr>
-                      <td>Pembangunan Kantor dan Tempat Usaha Pengumpulan Barang Bekas</td>
-                      <td>CV. Putra Jaya</td>
-                      <td>Tanjungkarang</td>
+                      <td>{{$item->pemanfaatan_ruang}}</td>
+                      <td>{{$item->pemilik}}</td>
+                      <td>{{$item->desa}}</td>
                   </tr>
                   </tbody>
+                @endforeach
                 </table>
               </div>
             </div>

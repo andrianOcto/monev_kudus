@@ -329,7 +329,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Perijinan Lahan Kecamatan ... </h3>
+              <h3 class="box-title">Perijinan Lahan Kecamatan </h3>
             </div><!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">

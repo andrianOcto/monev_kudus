@@ -48,38 +48,7 @@
                 </div>
             </div>
 
-            <div class="col-xs-12">
-              <div class="box">
-                <div class="box-header">
-                  <h3 class="box-title">Peta Monitoring</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                      <tr>
-                        <th>Wilayah</th>
-                        <th>Tahun</th>
-                        <th>Gambaran</th>
-                        <th>Keterangan</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                          <td>Jati</td>
-                          <td>2009</td>
-                          <td style="text-align:center"> <img src="" width="150px"> </td>
-                          <td>keterangan in here</td>
-                          <td style="text-align:center">
-                              <a href="#" class="btn btn-primary btn-flat"><i class="fa fa-eye"></i> lihat</a>
-                              <a href="/editlahan" class="btn btn-warning btn-flat"><i class="fa fa-pencil-square-o"></i> update</a>
-                          </td>
-                      </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-            </div>
+            
         </div>
     </section>
 

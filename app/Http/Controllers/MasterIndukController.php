@@ -117,6 +117,15 @@ class MasterIndukController extends Controller
     public function show($id)
     {
         $data['induk'] = Induk::find($id);
+        $induk = Induk::find($id);
+        $kecamatan = $induk->kecamatan;
+        $data['kecamatan'] = Kecamatan::find($kecamatan);
+        $data['perijinan']      = DB::table('perijinan')
+            ->join('desa', 'perijinan.desa', '=', 'desa.id')
+            ->join('kecamatan', 'perijinan.kecamatan', '=', 'kecamatan.id')
+            ->select('perijinan.pemanfaatan_ruang', 'perijinan.pemilik', 'desa.desa')
+            ->where('kecamatan.id', '=', $kecamatan)
+            ->get();
         return view('detail_data_induk')->with($data);
     }
 
