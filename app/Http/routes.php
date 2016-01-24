@@ -51,6 +51,7 @@ Route::post('/induk/add','MasterIndukController@store')->middleware(['auth']);
 Route::post('/induk/delete/','MasterIndukController@destroy')->middleware(['auth']);
 Route::get('/editinduk/{id}','MasterIndukController@edit')->middleware(['auth']);
 Route::post('/induk/update/{id}','MasterIndukController@update')->middleware(['auth']);
+Route::get('/masterinduk/export', 'MasterIndukController@export');
 
 // route master users
 Route::get('/users','UserController@index')->middleware(['auth']);
@@ -72,4 +73,5 @@ Route::get('/editperijinan/{id}','PerijinanController@edit')->middleware(['auth'
 Route::post('/perijinan/add','PerijinanController@store')->middleware(['auth']);
 Route::post('/perijinan/update/{id}','PerijinanController@update')->middleware(['auth']);
 Route::post('/perijinan/delete/','PerijinanController@destroy')->middleware(['auth']);
+Route::get('/perijinan/export','PerijinanController@export');
 

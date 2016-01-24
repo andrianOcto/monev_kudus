@@ -276,7 +276,7 @@ class MasterLahanController extends Controller
     
     public function export(){
         $query = DB::table('lahan')
-                    -> join('kecamatan', 'lahan.kecamatan', '=', 'kecamatan.kecamatan')
+                    -> join('kecamatan', 'lahan.kecamatan', '=', 'kecamatan.id')
                     -> select ('kecamatan.kecamatan as wilayah', 'lahan.tahun', 'lahan.hutan_lindung', 'lahan.kawasan_bawahan', 'lahan.sempadan_sungai', 'lahan.sekitar_danauwaduk', 'lahan.sekitar_mataair', 'lahan.lindung_spiritual', 'lahan.rth', 'lahan.cagar_budaya', 'lahan.rawan_bencana', 'lahan.lindung_geologi', 'lahan.hutan_produksi', 'lahan.hutan_rakyat', 'lahan.pertanian', 'lahan.perikanan', 'lahan.pertambangan', 'lahan.industri', 'lahan.pariwisata', 'lahan.pemukiman', 'lahan.perkebunan', 'lahan.pertahanan', 'lahan.keterangan')
                     -> get();
         
@@ -294,8 +294,8 @@ class MasterLahanController extends Controller
             $result['lindung_spiritual'] = $data1->lindung_spiritual;
             $result['rth'] = $data1->rth;
             $result['cagar_budaya'] = $data1->cagar_budaya;
-            $result['rawan_bencana'] = $data->rawan_bencana;
-            $result['lindung_geologi'] = $data1->lindung->geologi;
+            $result['rawan_bencana'] = $data1->rawan_bencana;
+            $result['lindung_geologi'] = $data1->lindung_geologi;
             $result['hutan_produksi'] = $data1->hutan_produksi;
             $result['hutan_rakyat'] = $data1->hutan_rakyat;
             $result['perkebunan'] = $data1->perkebunan;
