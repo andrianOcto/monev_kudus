@@ -45,13 +45,13 @@
                     <tr style="text-align:center">
                         <td></td>
                         @foreach ($kabupaten as $item)
-                            <td><img class="imgCompare" src="{{$item->path_peta}}" width="200px"></td>
-                        @endforeach
-                        @foreach ($induk as $item)
-                            <td><img class="imgCompare" src="{{$item->path_peta}}" width="200px"></td>
+                            <td><img class="imgCompare" src="{{ asset("files/lahan")}}/{{$item->path_peta}}" width="200px"></td>
                         @endforeach
                         @foreach ($lahan as $item)
-                            <td><img class="imgCompare" src="{{$item->path_peta}}" width="200px"></td>
+                            <td><img class="imgCompare" src="{{ asset("files/lahan")}}/{{$item->path_peta}}" width="200px"></td>
+                        @endforeach
+                        @foreach ($lahan as $item)
+                            <td><img class="imgCompare" src="{{ asset("files/lahan")}}/{{$item->path_peta}}" width="200px"></td>
                         @endforeach
                     </tr>
                     <tr style="text-align:center">
