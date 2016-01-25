@@ -45,10 +45,10 @@
                     <tr style="text-align:center">
                         <td></td>
                         @foreach ($kabupaten as $item)
-                            <td><img class="imgCompare" src="{{ asset("files/lahan")}}/{{$item->path_peta}}" width="200px"></td>
+                            <td><img class="imgCompare" src="{{ asset("files/induk")}}/{{$item->path_peta}}" width="200px"></td>
                         @endforeach
-                        @foreach ($lahan as $item)
-                            <td><img class="imgCompare" src="{{ asset("files/lahan")}}/{{$item->path_peta}}" width="200px"></td>
+                        @foreach ($induk as $item)
+                            <td><img class="imgCompare" src="{{ asset("files/induk")}}/{{$item->path_peta}}" width="200px"></td>
                         @endforeach
                         @foreach ($lahan as $item)
                             <td><img class="imgCompare" src="{{ asset("files/lahan")}}/{{$item->path_peta}}" width="200px"></td>
@@ -62,7 +62,7 @@
                         @endforeach
                         <!-- tahun -->
                         @foreach ($lahan as $item)
-                            <td style="line-height:1.5"><strong>Pola Ruang <br/> Wilayah {{$namaKecamatan}}<<br/> {{$item->tahun}} </strong></td>
+                            <td style="line-height:1.5"><strong>Pola Ruang <br/> Wilayah {{$namaKecamatan}}<br/> {{$item->tahun}} </strong></td>
                         @endforeach
                         
                     </tr>

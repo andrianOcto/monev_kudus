@@ -12,7 +12,7 @@
           <div class="box">
             <div class="box-header">
               <a href="/tambahdatainduk" class="btn btn-primary btn-flat btn-lg">+ Tambah Data</a>
-                <a href="/masterinduk/export" class="btn btn-success btn-flat btn-lg" style="float:right">Export Excel</a>
+                <a href="/masterinduk/export" class="btn btn-success btn-flat btn-lg" style="float:right; margin-right:80px">Export Excel</a>
                 <div class="pull-right box-tools">
                 <button data-original-title="Collapse" class="btn btn-default btn-flat" data-widget="collapse" data-toggle="tooltip" title=""><i class="fa fa-minus"></i></button>
                 </div>

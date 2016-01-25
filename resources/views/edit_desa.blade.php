@@ -41,7 +41,7 @@
                       <div class="form-group">
                         <label class="col-sm-3 control-label">Luas Area :</label>
                         <div class="col-sm-4">
-                          <input type="number" required placeholder="luas dalam ha" id="luas" name="luas" value="{{$desa->luas}}">
+                          <input type="number" placeholder="luas dalam ha" id="luas" name="luas" value="{{$desa->luas}}">
                         </div>
                       </div>
                       <?php echo csrf_field(); ?>
